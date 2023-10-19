@@ -1,17 +1,21 @@
 "use client";
 import React from "react";
-
+import Link from "next/link";
 const Cart = () => {
   return (
     <div className="w-[347.94px] text-white minH-[382.75px] rounded-[25px]">
       {/* image */}
       <div className="bg-white rounded-[25px] h-[300px] w-full mb-[10px]"></div>
       {/* name */}
-      <div className="mb-[5px] text-[20px] font-normal text-[#C8C8C8] tracking-[0.32px] leading-[17px] capitalize">
-        My Travel
-      </div>
+      <Link href={"/detail/my-travel"}>
+        <div className="mb-[5px] text-[20px] font-normal text-[#C8C8C8] tracking-[0.32px] leading-[17px] capitalize">
+          My Travel
+        </div>
+      </Link>
       {/* categories */}
-      <div className="mb-[5px] text-[12.8px] font-normal">"Food & Cooking", "Travel"</div>
+      <div className="mb-[5px] text-[12.8px] font-normal">
+        "Food Cooking", "Travel"
+      </div>
       {/* simple description */}
       {/* <div>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis

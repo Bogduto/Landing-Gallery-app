@@ -2,6 +2,7 @@
 import React from "react";
 import Container from "../Container/Container";
 import Image from "next/image";
+import { categoriesArray } from "@/constants";
 
 const Footer = () => {
   return (
@@ -18,17 +19,25 @@ const Footer = () => {
               Home of the best landing page design inspiration.
             </div>
           </div>
-          <div>
+          <div className="flex flex-row gap-[94px]">
             {/* title section */}
-            <div className="mb-[17px] uppercase text-[12.8px] text-white font-bold leading-[17px] tracking-[1.275px]">
-              links
+            <div>
+              <div className="mb-[17px] uppercase text-[12.8px] text-white font-bold leading-[17px] tracking-[1.275px]">
+                links
+              </div>
+
+              <ul className="flex flex-col gap-[9px]">
+                <li className="duration-300 cursor-pointer capitalize text-[14.9px] text-[#D1D5DB] hover:text-white font-normal leading-[25.5px]">
+                  submit
+                </li>
+              </ul>
             </div>
 
-            <ul className="flex flex-col gap-[9px]">
-              <li className="duration-300 cursor-pointer capitalize text-[14.9px] text-[#D1D5DB] hover:text-white font-normal leading-[25.5px]">
-                submit
-              </li>
-            </ul>
+            <div className="">
+              <div className="mb-[17px] uppercase text-[12.8px] text-white font-bold leading-[17px] tracking-[1.275px]">
+                categories
+              </div>
+            </div>
           </div>
         </div>
       </Container>

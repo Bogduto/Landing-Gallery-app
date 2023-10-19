@@ -2,14 +2,11 @@
 import Container from "@/components/Layout/Container/Container";
 import React, { useState } from "react";
 import Select from "@/components/UI/Select/Select";
+import { categoriesArray } from "@/constants";
+
 const Header = () => {
-  const [categories, setCategories] = useState([
-    "Technology",
-    "Food & Cooking",
-    "Travel",
-    "Sports",
-    "Art & Design",
-  ]);
+  const [categories, setCategories] = useState(categoriesArray);
+
   return (
     <div className="w-full py-[68px]">
       <Container>
@@ -26,7 +23,7 @@ const Header = () => {
               of the best landing page design inspiration.
             </div>
             {/* select */}
-              <Select data={categories} />
+            <Select data={categories} />
           </div>
           {/* right side */}
         </div>
