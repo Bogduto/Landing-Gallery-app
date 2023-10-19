@@ -6,6 +6,7 @@ import Link from "next/link";
 import Search from "@/components/UI/Search/Search";
 import Burger from "@/components/UI/Burger/Burger";
 import ToggleTheme from "@/components/UI/ToggleTheme/ToggleTheme";
+
 const Navbar = () => {
   return (
     <div className="w-full h-[46px] bg-inherit">
@@ -21,7 +22,6 @@ const Navbar = () => {
             </div>
           </Link>
 
-          {/* will turn to burger */}
           {/* burger */}
           <div className="desktop:hidden mobile:block">
             <Burger />

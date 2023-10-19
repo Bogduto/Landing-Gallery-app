@@ -3,9 +3,11 @@ import React from 'react'
 import { ThemeProvider } from "next-themes"
 const Template = ({ children }) => {
     return (
-        <ThemeProvider attribute="class">
-            {children}
-        </ThemeProvider>
+        <div>
+            <ThemeProvider attribute="class">
+                {children}
+            </ThemeProvider>
+        </div>
     )
 }
 
