@@ -1,7 +1,7 @@
 import './globals.css'
 import Navbar from '@/components/Layout/Navbar/Navbar'
 import Footer from '@/components/Layout/Footer/Footer'
-import Head from 'next/head'
+import Template from './template'
 
 export const metadata = {
   title: 'Landing Gallery',
@@ -12,11 +12,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
-        <Navbar />
-        {children}
-        <Footer />
-      </body>
+      <Template>
+        <body className='bg-white dark:bg-black'>
+          <Navbar />
+          {children}
+          <Footer />
+        </body>
+      </Template>
     </html>
   )
 }

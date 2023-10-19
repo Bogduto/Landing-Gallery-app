@@ -70,7 +70,7 @@ const SelectOptionContainer = ({ children, ...props }) => {
 const SelectButton = ({ children, icon, ...props }) => {
   return (
     <button
-      className="inline-block  text-white border-[2px] border-[#252525] p-[12px] rounded-[12px]"
+      className="inline-block text-black dark:text-white border-[2px] border-[#252525] p-[12px] rounded-[12px]"
       type="button"
       {...props}
     >
@@ -81,7 +81,7 @@ const SelectButton = ({ children, icon, ...props }) => {
 
         <div className="">
           <svg
-            fill="#ffffff"
+            className="dark:fill-white fill-black"
             height="10px"
             width="10px"
             version="1.1"

@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
+  darkMode: ['class'],
   content: [
     './pages/**/*.{js,jsx}',
     './components/**/*.{js,jsx}',
@@ -22,6 +22,7 @@ module.exports = {
         "white": "#fff",
         "white-hover": "#cccccc",
         "black": "#000",
+        "black-hover": "#242424",
         "footer-color": "#1E1E1E",
         "gray": "#C8C8C8"
       },

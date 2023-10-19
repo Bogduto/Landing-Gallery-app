@@ -5,15 +5,15 @@ const Cart = () => {
   return (
     <div className="w-[347.94px] text-white minH-[382.75px] rounded-[25px]">
       {/* image */}
-      <div className="bg-white rounded-[25px] h-[300px] w-full mb-[10px]"></div>
+      <div className="bg-black dark:bg-white rounded-[25px] h-[300px] w-full mb-[10px]"></div>
       {/* name */}
       <Link href={"/detail/my-travel"}>
-        <div className="mb-[5px] text-[20px] font-normal text-[#C8C8C8] tracking-[0.32px] leading-[17px] capitalize">
+        <div className="mb-[5px] text-[20px] font-normal text-black dark:text-[#C8C8C8] tracking-[0.32px] leading-[17px] capitalize">
           My Travel
         </div>
       </Link>
       {/* categories */}
-      <div className="mb-[5px] text-[12.8px] font-normal">
+      <div className="mb-[5px] text-black dark:text-white text-[12.8px] font-normal">
         "Food Cooking", "Travel"
       </div>
       {/* simple description */}
