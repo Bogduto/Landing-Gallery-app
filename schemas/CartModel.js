@@ -1,13 +1,17 @@
 import mongoose from "mongoose";
 
 const CartModel = mongoose.Schema({
+    screenshot: {
+        require: false,
+        type: String
+    },
     name: {
-        require: true,
+        require: false,
         type: String
     },
     categories: [
         {
-            require: true,
+            require: false,
             type: String,
             default: []
         }
@@ -16,13 +20,18 @@ const CartModel = mongoose.Schema({
         require: true,
         type: String,
     },
-    url: {
+    websiteUrl: {
         require: true,
         type: String
     },
     email: {
-        require: false,
+        require: true,
         type: String
+    },
+    verified: {
+        require: true,
+        type: Boolean,
+        default: false
     }
 })
 
