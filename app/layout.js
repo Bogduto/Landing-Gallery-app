@@ -2,6 +2,12 @@ import './globals.css'
 import Navbar from '@/components/Layout/Navbar/Navbar'
 import Footer from '@/components/Layout/Footer/Footer'
 import Template from './template'
+import { Unbounded } from 'next/font/google'
+
+const unbounded = Unbounded({
+  weight: ['400', "300", "700", "600", "500"],
+  subsets: ['latin', "cyrillic"],
+})
 
 export const metadata = {
   title: 'Landing Gallery',
@@ -12,7 +18,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className='bg-white dark:bg-black'>
+      <body className={`${unbounded.className} bg-white dark:bg-black`}>
         <Template>
           <Navbar />
           {children}

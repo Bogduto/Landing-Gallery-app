@@ -24,7 +24,12 @@ module.exports = {
         "black": "#000",
         "black-hover": "#242424",
         "footer-color": "#1E1E1E",
-        "gray": "#C8C8C8"
+        "gray": "#C8C8C8",
+        "orange": "#E44B09",
+        "orange-hover": "#c24008"
+      },
+      boxShadow: {
+        "black-btn": "0px 1px 2px 0px rgba(0, 0, 0, 0.05)"
       },
       keyframes: {
         "accordion-down": {

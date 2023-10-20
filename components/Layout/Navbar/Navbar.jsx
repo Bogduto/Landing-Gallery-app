@@ -32,7 +32,7 @@ const Navbar = () => {
             <Search />
             {/* links */}
             <ul className="flex flex-row items-center gap-[25px]">
-              <Link href={"/new"}>
+              <Link href={"/submit"}>
                 <li className="cursor-pointer uppercase font-normal text-[12.8px] tracking-[1.27px] leading-[17px] text-black hover:text-black-hover dark:text-white dark:hover:text-white-hover duration-300">
                   Submit startup
                 </li>
