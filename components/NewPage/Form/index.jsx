@@ -15,7 +15,7 @@ const RegisterProject = () => {
         console.log("s", values);
       }}
     >
-      <Form className="flex flex-col gap-[25px] mt-[24px] w-[500px]">
+      <Form className="flex flex-col gap-[25px] mt-[24px] mobile:w-full desktop:w-[500px]">
         <div className="flex flex-col gap-[8.8px]">
           <Label name={"email"}>Your email</Label>
 
@@ -30,7 +30,7 @@ const RegisterProject = () => {
           <Label name={"websiteUrl"}>Website URL</Label>
 
           <Field
-            className="py-[12.2px] px-[12.3px] border-[1px] border-[#CBD5E1] bg-[#F1F5F9] rounded-[8.5px] text-[14.9px] text-[#6B7280] font-normal capitalize"
+            className="py-[12.2px] px-[12.3px] border-[1px] border-[#CBD5E1] bg-[#F1F5F9] rounded-[8.5px] mobile:text-[14px] desktop:text-[14.9px] text-[#6B7280] font-normal capitalize"
             name={"websiteUrl"}
             id={"websiteUrl"}
             placeholder={"website url"}
@@ -46,7 +46,7 @@ const RegisterProject = () => {
             placeholder={"description"}
           />
         </div>
-        <div className="mt-[26px]">
+        <div className="mt-[26px] mobile:text-center desktop:text-start">
           <SubmitButton>Complete submission</SubmitButton>
         </div>
       </Form>

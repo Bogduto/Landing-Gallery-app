@@ -3,8 +3,6 @@ import { NextResponse } from "next/server"
 
 export async function GET(req, res) {
     try {
-
-
         // puppeteer lib for screenshot main page
         NextResponse.json({
             msg: "one post"
