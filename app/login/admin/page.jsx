@@ -5,24 +5,25 @@ import Carts from "@/components/Login/Admin/Carts/Carts";
 
 const getAll = async () => {
   try {
-    const carts = await fetch(`http://localhost:3000/api/approval/getAll`, {method: "GET"})
-    const cartsJson = await carts.json()
-    return cartsJson
+    const carts = await fetch(`http://localhost:3000/api/approval/getAll`, {
+      method: "GET",
+      cache: "no-cache",
+    });
+    const cartsJson = await carts.json();
+    return cartsJson;
   } catch (error) {
-    throw new Error(error)
+    throw new Error(error);
   }
-}
+};
 
 const AdminPanel = async () => {
   const auth = true;
   // if (user.password && user.username !== password && username) not logined
   if (auth) {
-    
-    const data = await getAll()
-    console.log(data)
+    const data = await getAll();
     return (
       <div className="py-[40px] w-full minH-screen bg-white dark:bg-black">
-        <Carts data={data.carts}/>
+        <Carts data={data.carts} />
       </div>
     );
   } else {

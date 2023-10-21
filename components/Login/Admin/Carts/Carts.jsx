@@ -1,11 +1,21 @@
 "use client";
 import Container from "@/components/Layout/Container/Container";
-import React, { useState } from "react";
-
+import React from "react";
 import Link from "next/link";
 
+const handleAcceptCart = async () => {
+  return await fetch(``, {method: "PUT"})
+}
+
+const handleUpdateCart = async () => {
+  return await fetch(``, {method: "POST", body: JSON.stringify("{hello: '123'}")})
+}
+
+const handleDeleteCart = async () => {
+  return await fetch(``, {method: "DELETE"})
+}
+
 const Carts = ({ data }) => {
-  const [carts, setCarts] = useState([0, 0, 0]);
   return (
     <div className="w-full h-full">
       <Container>
@@ -23,15 +33,15 @@ const Carts = ({ data }) => {
                   <div>{item.websiteUrl}</div>
                 </Link>
                 <div className="flex flex-row gap-[30px] items-center">
-                  <button type="button" className="bg-[#FF0000] px-[10px]">
+                  <button onClick={() => console.log("click")} type="button" className="bg-[#FF0000] px-[10px]">
                     accept
                   </button>
 
-                  <button type="button" className="bg-[#FF0000] px-[10px]">
+                  <button onClick={() => console.log("click")} type="button" className="bg-[#FF0000] px-[10px]">
                     change
                   </button>
 
-                  <button type="button" className="bg-[#FF0000] px-[10px]">
+                  <button onClick={() => console.log("click")} type="button" className="bg-[#FF0000] px-[10px]">
                     remove
                   </button>
                 </div>
