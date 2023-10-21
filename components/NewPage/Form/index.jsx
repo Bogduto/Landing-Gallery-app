@@ -1,21 +1,20 @@
 "use client";
 import React, { useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import * as Yup from "yup";
 import { useRouter } from "next/navigation";
+import SubmitButton from "@/components/UI/Buttons/SubmitButton";
+import * as Yup from "yup";
 
 const registerProjectValidator = Yup.object().shape({
   description: Yup.string()
     .min(40, "Too Short!")
     .max(500, "Too Long!")
-    .required("Required"),
-  email: Yup.string().email("Invalid email").required("Required"),
-  websiteUrl: Yup.string().required("required"),
+    .required("deskription is Required"),
+  email: Yup.string().email("Invalid email").required("email is required"),
+  websiteUrl: Yup.string().required("websiteUrl is required"),
 });
 
 const RegisterProject = () => {
-  const handleSubmit = () => {};
-
   const router = useRouter();
 
   return (
@@ -45,7 +44,7 @@ const RegisterProject = () => {
             id={"email"}
             placeholder={"your email"}
           />
-          <ErrorMessage name={"email"} />
+          <ErrorMessage name={"email"} render={msg => <div className="text-[#FF0000] text-[12px] font-normal">{msg}</div>} />
         </div>
         <div className="flex flex-col gap-[8.8px]">
           <Label name={"websiteUrl"}>Website URL</Label>
@@ -57,7 +56,7 @@ const RegisterProject = () => {
             placeholder={"website url"}
           />
 
-          <ErrorMessage name={"websiteUrl"} />
+          <ErrorMessage name={"websiteUrl"} render={msg => <div className="text-[#FF0000] text-[12px] font-normal">{msg}</div>} />
         </div>
         <div className="flex flex-col gap-[8.8px]">
           <Label name={"description"}>Description</Label>
@@ -69,7 +68,7 @@ const RegisterProject = () => {
             placeholder={"description"}
           />
 
-          <ErrorMessage name={"description"} />
+          <ErrorMessage name={"description"} render={msg => <div className="text-[#FF0000] text-[12px] font-normal">{msg}</div>} />
         </div>
         <div className="mt-[26px] mobile:text-center desktop:text-start">
           <SubmitButton>Complete submission</SubmitButton>
@@ -79,16 +78,6 @@ const RegisterProject = () => {
   );
 };
 
-const SubmitButton = ({ children }) => {
-  return (
-    <button
-      className="rounded-[8.5px] py-[12px] px-[27px] duration-300 bg-orange hover:bg-orange-hover text-white text-[14.9px] text-white font-normal leading-[21.25px]"
-      type="submit"
-    >
-      {children}
-    </button>
-  );
-};
 
 const Label = ({ name, children }) => {
   return (

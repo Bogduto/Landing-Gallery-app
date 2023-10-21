@@ -22,14 +22,16 @@ const Search = () => {
 
   const handleSearchResults = () => {};
 
+  // cursor-pointer capitalize font-normal text-[12.8px] tracking-[1.27px] leading-[17px] text-black hover:text-black-hover dark:text-white dark:hover:text-white-hover duration-300
+
   //   also outline click close input
   return (
-    <div className="relative">
-      <div className="flex flex-row items-center gap-[8px]">
+    <div className="relative h-full">
+      <div className="h-full flex flex-row items-center gap-[8px]">
         <input
           className={`${
             isShow
-              ? "w-[240px] h-[40px] border-b-[1px] border-black dark:border-white pb-[5px] flex flex-row items-center"
+              ? "w-[280px] h-[40px] border-b-[1px] border-black dark:border-white font-normal text-[12.8px] tracking-[1.27px] leading-[17px] flex flex-row items-center"
               : "w-0 h-[40px] border-none"
           } ${
             value.length > 0 ? "border-none" : ""

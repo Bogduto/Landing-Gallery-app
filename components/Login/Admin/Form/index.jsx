@@ -1,12 +1,15 @@
 "use client";
 import React, { useState } from "react";
+import SubmitButton from "@/components/UI/Buttons/SubmitButton";
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import * as Yup from "yup";
 import { useRouter } from "next/navigation";
+import * as Yup from "yup";
 
 const registerProjectValidator = Yup.object().shape({
-  email: Yup.string().email("Invalid username").required("Required"),
-  password: Yup.string().required("required"),
+  email: Yup.string().email("Invalid username").required("email is required"),
+  password: Yup.string()
+    .password("Invalid password")
+    .required("password is required"),
 });
 
 const AdminLogin = () => {
@@ -35,7 +38,14 @@ const AdminLogin = () => {
             id={"username"}
             placeholder={"your username"}
           />
-          <ErrorMessage name={"username"} />
+          <ErrorMessage
+            name={"username"}
+            render={(msg) => (
+              <div className="text-[#FF0000] text-[12px] font-normal">
+                {msg}
+              </div>
+            )}
+          />
         </div>
         <div className="flex flex-col gap-[8.8px]">
           <Label name={"password"}>Your password</Label>
@@ -47,7 +57,14 @@ const AdminLogin = () => {
             placeholder={"your password"}
           />
 
-          <ErrorMessage name={"password"} />
+          <ErrorMessage
+            name={"password"}
+            render={(msg) => (
+              <div className="text-[#FF0000] text-[12px] font-normal">
+                {msg}
+              </div>
+            )}
+          />
         </div>
 
         <div className="mt-[26px] mobile:text-center desktop:text-start">
@@ -58,16 +75,6 @@ const AdminLogin = () => {
   );
 };
 
-const SubmitButton = ({ children }) => {
-  return (
-    <button
-      className="rounded-[8.5px] py-[12px] px-[27px] duration-300 bg-orange hover:bg-orange-hover text-white text-[14.9px] text-white font-normal leading-[21.25px]"
-      type="submit"
-    >
-      {children}
-    </button>
-  );
-};
 
 const Label = ({ name, children }) => {
   return (

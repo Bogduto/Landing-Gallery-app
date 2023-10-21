@@ -7,7 +7,7 @@ const getAll = async () => {
   try {
     const carts = await fetch(`http://localhost:3000/api/approval/getAll`, {
       method: "GET",
-      cache: "no-cache",
+      cache: "no-store",
     });
     const cartsJson = await carts.json();
     return cartsJson;
@@ -17,12 +17,13 @@ const getAll = async () => {
 };
 
 const AdminPanel = async () => {
-  const auth = true;
+  const auth = false;
+  
   // if (user.password && user.username !== password && username) not logined
   if (auth) {
     const data = await getAll();
     return (
-      <div className="py-[40px] w-full minH-screen bg-white dark:bg-black">
+      <div className="py-[40px] w-full h-full bg-white dark:bg-black">
         <Carts data={data.carts} />
       </div>
     );

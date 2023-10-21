@@ -18,11 +18,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${unbounded.className} bg-white dark:bg-black`}>
+      <body className={`${unbounded.className} w-full h-full bg-white dark:bg-black`}>
         <Template>
-          <Navbar />
-          {children}
-          <Footer />
+          <div className='w-full h-full flex flex-col justify-between'>
+            <Navbar />
+            {children}
+            <Footer />
+          </div>
         </Template>
       </body>
     </html>

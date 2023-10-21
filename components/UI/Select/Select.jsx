@@ -70,7 +70,7 @@ const SelectOptionContainer = ({ children, ...props }) => {
 const SelectButton = ({ children, icon, ...props }) => {
   return (
     <button
-      className="inline-block text-black dark:text-white border-[2px] border-[#252525] p-[12px] rounded-[12px]"
+      className="inline-block text-black dark:text-white border-[2px] border-[#252525] active:bg-white-active duration-300 p-[12px] rounded-[12px]"
       type="button"
       {...props}
     >

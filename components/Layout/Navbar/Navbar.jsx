@@ -27,18 +27,18 @@ const Navbar = () => {
             <Burger />
           </div>
           {/* clasic */}
-          <div className="mobile:hidden desktop:flex flex-row items-center gap-[20px]">
+          <div className="h-full mobile:hidden desktop:flex flex-row gap-[20px]">
             {/* search */}
             <Search />
             {/* links */}
-            <ul className="flex flex-row items-center gap-[25px]">
+            <ul className="h-full flex flex-row items-center gap-[25px]">
               <Link href={"/submit"}>
-                <li className="cursor-pointer uppercase font-normal text-[12.8px] tracking-[1.27px] leading-[17px] text-black hover:text-black-hover dark:text-white dark:hover:text-white-hover duration-300">
+                <li className="cursor-pointer capitalize font-normal text-[12.8px] tracking-[1.27px] leading-[17px] text-black hover:text-black-hover dark:text-white dark:hover:text-white-hover duration-300">
                   Submit startup
                 </li>
               </Link>
             </ul>
-            <div className="w-[50px]">
+            <div className="w-[50px] flex flex-row items-center">
               <ToggleTheme />
             </div>
           </div>
