@@ -1,6 +1,7 @@
 "use client";
-import Container from "../../../components/Layout/Container/Container";
 import React, { useState } from "react";
+// componetns
+import Container from "@/components/Layout/Container/Container";
 
 const Detail = () => {
   const [cate, setCate] = useState([

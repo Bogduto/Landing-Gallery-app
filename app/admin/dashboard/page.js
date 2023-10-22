@@ -2,8 +2,7 @@ import React from 'react'
 // services
 import { getAllProjectsAdmin } from '@/services';
 // components
-import Carts from "@/components/Login/Admin/Carts/Carts";
-
+import Carts from './components/carts'
 
 const AdminDashboard = async () => {
     const data = await getAllProjectsAdmin();

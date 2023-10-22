@@ -2,7 +2,7 @@
 import React from "react";
 // components
 import Container from "@/components/Layout/Container/Container";
-import CreateProject from "./CreateProject";
+import CreateProject from "../CreateProject";
 
 const NewProject = () => {
   return (
@@ -19,7 +19,7 @@ const NewProject = () => {
             Share your startup with the community and get featured
           </div>
         </div>
-        <RegisterProject />
+        <CreateProject />
       </Container>
     </div>
   );
