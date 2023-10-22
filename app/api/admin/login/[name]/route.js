@@ -9,7 +9,7 @@ export async function GET(req, { params }) {
 
         const user = await userModel
 
-        const findUser = await user.findOne({ username: params.username })
+        const findUser = await user.findOne({ name: params.name })
 
         NextResponse.json({
             msg: "login",

@@ -84,7 +84,10 @@ const EditForm = () => {
           />
         </div>
         <div className="">
-          <CategoriesContainer handleDeleteCategorie={handleDeleteCategorie} values={values} />
+          <CategoriesContainer
+            handleDeleteCategorie={handleDeleteCategorie}
+            values={values}
+          />
           <AddCategorieButton handleAddCategorie={handleAddCategorie} />
         </div>
         <div>
@@ -101,9 +104,9 @@ const CategoriesContainer = ({ values, handleDeleteCategorie }) => {
       {values.categories &&
         values.categories.map((item, key) => (
           <button
+            key={key}
             type="button"
             className="inline-block gap-[5px] p-[12px]  border-[2px] border-[#CBD5E1] bg-[#F1F5F9] rounded-[8.5px] text-[14.9px] placeholder:text-[#6B7280] font-normal capitalize dark:text-white dark:bg-black bg-white text-black"
-            key={key}
             onClick={() => handleDeleteCategorie(item.text)}
           >
             <div>{item.icon}</div>
@@ -127,6 +130,7 @@ const AddCategorieButton = ({ ...props }) => {
         <DrawAllCategories>
           {categoriesArray.map((item, key) => (
             <DrawCategoryCart
+              key={key}
               onClick={() => props.handleAddCategorie(item)}
               icon={item.icon}
             >

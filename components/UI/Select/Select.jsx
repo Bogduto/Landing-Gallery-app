@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
@@ -18,6 +18,11 @@ const Select = ({ data }) => {
   const handleChangeShow = () => {
     setOnShow(!onShow);
   };
+
+  // close 
+
+
+
 
   return (
     <div className="w-full flex mobile:flex-col desktop:flex-row items-center mobile:justify-center desktop:justify-start">

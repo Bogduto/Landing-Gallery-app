@@ -37,6 +37,36 @@ const Footer = () => {
               <div className="mb-[17px] uppercase text-[12.8px] text-white font-bold leading-[17px] tracking-[1.275px]">
                 categories
               </div>
+
+              <div className="flex flex-row gap-[30px] items-start">
+                <div className="flex flex-col items-start gap-[8.8px]">
+                  {categoriesArray
+                    .slice(0, categoriesArray.length / 2)
+                    .map((item, key) => (
+                      <div
+                        className="flex flex-row gap-[5px]duration-300 cursor-pointer capitalize text-[14.9px] text-[#D1D5DB] hover:text-white font-normal leading-[25.5px]"
+                        key={key}
+                      >
+                        <div>{item.icon}</div>
+                        {item.text}
+                      </div>
+                    ))}
+                </div>
+
+                <div className="flex flex-col items-start gap-[8.8px]">
+                  {categoriesArray
+                    .slice((categoriesArray.length / 2) + 1, categoriesArray.length)
+                    .map((item, key) => (
+                      <div
+                        className="flex flex-row gap-[5px]duration-300 cursor-pointer capitalize text-[14.9px] text-[#D1D5DB] hover:text-white font-normal leading-[25.5px]"
+                        key={key}
+                      >
+                        <div>{item.icon}</div>
+                        {item.text}
+                      </div>
+                    ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

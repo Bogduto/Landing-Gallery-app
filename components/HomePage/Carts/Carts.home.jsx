@@ -8,9 +8,19 @@ const Carts = ({ data }) => {
     <div className="w-full h-full">
       <Container>
         <div className="w-full h-full flex flex-row flex-wrap items-center gap-[37.55px] justify-between">
-          {data
-            ? data.map((item, key) => <Cart key={key} />)
-            : Array.from({ length: 9 }).map((item, key) => <Cart key={key} />)}
+          {data.length
+            ? data.map((item, key) => (
+                <Cart
+                  key={key}
+                  description={item.description}
+                  name={item.name}
+                  image={item.screenshot}
+                  categories={item.categories}
+                />
+              ))
+            : Array.from({ length: 9 }).map((item, key) => (
+                <div key={key}>dpsa</div>
+              ))}
         </div>
 
         <div className="w-full flex flex-row justify-center py-[42px]">

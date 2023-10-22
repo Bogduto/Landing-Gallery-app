@@ -13,7 +13,7 @@ async function MakeScrenshot(url) {
         width: 1920,
         height: 1080,
     });
-    await page.goto(url, { waitUntil: 'domcontentloaded' });
+    await page.goto(url, { waitUntil: 'networkidle0' });
     const screenshotBuffer = await page.screenshot();
 
     const fileName = `${uid(20)}.jpg`
@@ -28,10 +28,10 @@ async function MakeScrenshot(url) {
 export async function POST(req, res) {
     try {
         let body = await req.json()
+        
+        await connectMongodb()
         const pathName = await MakeScrenshot(body.websiteUrl)
         body.screenshot = pathName
-
-        await connectMongodb()
         const cart = await cartModel
 
         const newCart = await cart.create(body)

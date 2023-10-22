@@ -7,9 +7,7 @@ import * as Yup from "yup";
 
 const registerProjectValidator = Yup.object().shape({
   email: Yup.string().email("Invalid username").required("email is required"),
-  password: Yup.string()
-    .password("Invalid password")
-    .required("password is required"),
+  password: Yup.string().required("password is required"),
 });
 
 const AdminLogin = () => {
@@ -74,7 +72,6 @@ const AdminLogin = () => {
     </Formik>
   );
 };
-
 
 const Label = ({ name, children }) => {
   return (
