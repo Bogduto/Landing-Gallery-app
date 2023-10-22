@@ -40,7 +40,7 @@ export async function POST(req, res) {
             msg: "created new cart",
             body
         }, {
-            status: 200
+            status: 201
         })
     } catch (error) {
         throw new Error(error)
