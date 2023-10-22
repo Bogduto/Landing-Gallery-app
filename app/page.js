@@ -1,23 +1,14 @@
+import React from 'react'
+// services
+import { getAllProjectsClient } from '@/services'
+// components
 import Carts from '@/components/HomePage/Carts/Carts.home'
 import Header from '@/components/HomePage/Header/Header.home'
 
-const handleGetAllCarts = async () => {
-  try {
-    const carts = await fetch(`http://localhost:3000/api/send/getAll/`, {
-      method: "GET",
-      cache: "no-cache",
-    })
 
-    const cartsJson = await carts.json()
-
-    return cartsJson
-  } catch (error) {
-    console.error(error)
-  }
-}
 
 export default async function Home() {
-  const carts = await handleGetAllCarts()
+  const carts = await getAllProjectsClient()
   return (
     <main className="">
         <Header />

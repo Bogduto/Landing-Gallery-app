@@ -1,7 +1,7 @@
+import { NextResponse } from "next/server"
 import connectMongodb from "@/connects/mongoose"
 import cartModel from "@/schemas/CartModel"
 import mongoose from "mongoose"
-import { NextResponse } from "next/server"
 
 export async function GET(req, res) {
     try {

@@ -1,8 +1,6 @@
 "use client";
 import Container from "@/components/Layout/Container/Container";
 import React from "react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
 import AdminCart from "../Cart";
 
 const Carts = ({ data }) => {

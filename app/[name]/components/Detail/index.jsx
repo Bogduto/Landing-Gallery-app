@@ -1,5 +1,5 @@
 "use client";
-import Container from "../Layout/Container/Container";
+import Container from "../../../components/Layout/Container/Container";
 import React, { useState } from "react";
 
 const Detail = () => {

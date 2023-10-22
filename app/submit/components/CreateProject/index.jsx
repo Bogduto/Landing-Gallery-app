@@ -15,7 +15,7 @@ const registerProjectValidator = Yup.object().shape({
   name: Yup.string().required("name is required"),
 });
 
-const RegisterProject = () => {
+const CreateProject = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   return (
@@ -156,4 +156,4 @@ const Label = ({ name, children }) => {
   );
 };
 
-export default RegisterProject;
+export default CreateProject;

@@ -1,9 +1,10 @@
 "use client";
 import React from "react";
+// components
 import Container from "@/components/Layout/Container/Container";
-import RegisterProject from "./Form";
+import CreateProject from "./CreateProject";
 
-const New = () => {
+const NewProject = () => {
   return (
     <div className="w-full h-full">
       <Container>
@@ -24,4 +25,4 @@ const New = () => {
   );
 };
 
-export default New;
+export default NewProject;

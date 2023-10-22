@@ -2,7 +2,10 @@ const url = `${process.env.DOMAIN}/api`
 
 export const getAllProjectsClient = async () => {
     try {
-        const carts = await fetch(`${url}/send/getAll`)
+        const carts = await fetch(`${url}/public-api/project/getAll`, {
+            method: "GET",
+            cache: "no-cache",
+        })
 
         const cartsJson = await carts.json()
 
@@ -13,7 +16,7 @@ export const getAllProjectsClient = async () => {
 }
 export const getAllProjectsAdmin = async () => {
     try {
-        const carts = await fetch(`${url}/approval/getAll`)
+        const carts = await fetch(`${url}/private-api/project/getAll`)
 
         const cartsJson = await carts.json()
 
@@ -24,7 +27,9 @@ export const getAllProjectsAdmin = async () => {
 }
 export const getOneProject = async (id) => {
     try {
-        const oneCart = await fetch(`${url}/send/getOne/${id}`)
+        const oneCart = await fetch(`${url}/public-api/project/${id}`, {
+            method:"GET"
+        })
 
         const oneCartJson = await oneCart.json()
 
@@ -33,9 +38,13 @@ export const getOneProject = async (id) => {
         console.error(error)
     }
 }
+
 export const deleteOneProject = async (id) => {
     try {
-        const deleteCart = await fetch(`${url}/approval/manipulation/remove/${id}`)
+        const deleteCart = await fetch(`${url}/private-api/project/management/remove/${id}`, 
+        {
+            method: "DELETE"
+        })
 
         const deleteCartJson = await deleteCart.json()
 
@@ -44,9 +53,12 @@ export const deleteOneProject = async (id) => {
         console.error(error)
     }
 }
-export const updateOneProject = async (id) => {
+export const updateOneProject = async (data) => {
     try {
-        const updateCart = await fetch(`${url}/approval/manipulation/update/${id}`)
+        const updateCart = await fetch(`${url}/private-api/project/management/update/${id}`, {
+            method: "POST",
+            body: JSON.stringify(data)
+        })
 
         const updateCartJson = await updateCart.json()
 
@@ -57,7 +69,9 @@ export const updateOneProject = async (id) => {
 }
 export const acceptOneProject = async (id) => {
     try {
-        const acceptCart = await fetch(`${url}/approval/manipulation/accept/${id}`)
+        const acceptCart = await fetch(`${url}/private-api/project/management/accept/${id}`, {
+            method: "PUT"
+        })
 
         const acceptCartJson = await acceptCart.json()
 

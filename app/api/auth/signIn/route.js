@@ -3,13 +3,13 @@ import { NextResponse } from "next/server"
 import userModel from "@/schemas/UserModel"
 import connectMongodb from "@/connects/mongoose"
 
-export async function GET(req, { params }) {
+export async function POST(req, { params }) {
     try {
         await connectMongodb()
 
-        const user = await userModel
+        // const user = await userModel
 
-        const findUser = await user.findOne({ name: params.name })
+        // const findUser = await user.findOne({ name: params.name })
 
         NextResponse.json({
             msg: "login",

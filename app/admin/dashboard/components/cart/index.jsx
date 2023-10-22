@@ -1,29 +1,15 @@
 "use client";
 import React from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
-const handleAcceptCart = async (id, router) => {
-  await fetch(`http://localhost:3000/api/approval/manipulation/accept/${id}`, {
-    method: "PUT",
-  });
-  return await router.fastRefresh();
-};
-
-const handleUpdateCart = async (id, router) => {
-  await fetch(`http://localhost:3000/api/approval/manipulation/update/${id}`, {
-    method: "POST",
-    body: JSON.stringify("{hello: '123'}"),
-  });
-  return await router.fastRefresh();
-};
-
-const handleDeleteCart = async (id, router) => {
-  await fetch(`http://localhost:3000/api/approval/manipulation/remove/${id}`, {
-    method: "DELETE",
-  });
-  return await router.fastRefresh();
-};
+// services
+import {
+  acceptOneProject,
+  deleteOneProject,
+  updateOneProject,
+} from "@/services";
+// return await router.fastRefresh();
 
 const AdminCart = ({
   description,
@@ -32,10 +18,10 @@ const AdminCart = ({
   _id,
   image,
   categories,
-  name
+  name,
 }) => {
   const router = useRouter();
-  console.log("id", image);
+
   return (
     <div className="w-[400px]">
       {image && (

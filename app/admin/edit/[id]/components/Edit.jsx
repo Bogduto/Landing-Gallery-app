@@ -1,6 +1,7 @@
 "use client";
-import Container from "@/components/Layout/Container/Container";
 import React from "react";
+// components
+import Container from "@/components/Layout/Container/Container";
 import EditForm from "./EditForm";
 
 const Edit = () => {
