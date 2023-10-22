@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import AdminCart from "../Cart";
 
 const Carts = ({ data }) => {
-  console.log(data)
   return (
     <div className="w-full h-full">
       <Container>
