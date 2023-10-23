@@ -38,7 +38,7 @@ const AdminCart = ({
       </Link>
       <div className="flex flex-row gap-[10px] mt-[20px] items-center">
         <button
-          onClick={() => handleAcceptCart(_id, router)}
+          onClick={() => (acceptOneProject(_id), router.fastRefresh())}
           type="button"
           className="border-[3px] dark:bg-white bg-black hover:bg-black-hover dark:hover:bg-white-hover dark:active:border-white-active active:border-black-active duration-300 rounded-[10px] p-[5px]"
         >
@@ -95,7 +95,7 @@ const AdminCart = ({
         </Link>
 
         <button
-          onClick={() => handleDeleteCart(_id, router)}
+          onClick={() => (deleteOneProject(_id), router.fastRefresh())}
           type="button"
           className="border-[3px] dark:bg-white bg-black hover:bg-black-hover dark:hover:bg-white-hover dark:active:border-white-active active:border-black-active duration-300 rounded-[10px] p-[5px]"
         >

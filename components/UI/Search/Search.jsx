@@ -1,11 +1,14 @@
 "use client";
 import React, { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import useSWR from "swr";
+import Link from "next/link";
+
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const Search = () => {
   const [value, setValue] = useState("");
-  const [isShow, setIsShow] = useState(false);
-
+  const [isShow, setIsShow] = useState(true);
   const currentPath = usePathname();
 
   const handleChangeShow = () => {
@@ -13,16 +16,15 @@ const Search = () => {
     if (!isShow) setValue("");
   };
 
-  const handleSearch = () => {
-    console.log("click", currentPath);
-    if (value.length === 0) return handleChangeShow();
-    if (value.length > 0) return setValue("");
-    // query ?search=value
+  const handleClicked = () => {
+    setValue("");
+    setIsShow(false);
   };
 
-  const handleSearchResults = () => {};
-
-  // cursor-pointer capitalize font-normal text-[12.8px] tracking-[1.27px] leading-[17px] text-black hover:text-black-hover dark:text-white dark:hover:text-white-hover duration-300
+  const { data, error, isLoading } = useSWR(
+    value ? `/api/public-api/project/search/${value}` : null,
+    fetcher
+  );
 
   //   also outline click close input
   return (
@@ -43,7 +45,7 @@ const Search = () => {
         />
         <button
           className="relative w-[20px] h-[20px]"
-          onClick={handleSearch}
+          onClick={handleChangeShow}
           type="button"
         >
           {value.length > 0 ? (
@@ -64,7 +66,7 @@ const Search = () => {
                   <rect x="67.224" width="350.535" height="71.81" />
                   <path
                     d="M417.776,92.829H67.237V485h350.537V92.829H417.776z M165.402,431.447h-28.362V146.383h28.362V431.447z M256.689,431.447
-               h-28.363V146.383h28.363V431.447z M347.97,431.447h-28.361V146.383h28.361V431.447z"
+                    h-28.363V146.383h28.363V431.447z M347.97,431.447h-28.361V146.383h28.361V431.447z"
                   />
                 </g>
               </g>
@@ -99,11 +101,21 @@ const Search = () => {
           )}
         </button>
       </div>
-      {value.length > 0 && (
-        <div className="bg-white absolute top-9 w-[300px] left-0">
-          results results <br />
-          results <br /> results <br /> results results results <br />
-          results <br /> results <br /> results
+      {isShow && data && data?.result.length > 0 && (
+        <div className="dark:border-white border-[1px] border-black bg-white dark:bg-black absolute top-9 w-[300px] left-0">
+          <div className="flex flex-col gap-[10px]">
+            {data.result.map((item, key) => (
+              <Link
+                key={key}
+                href={`/${item.name}`}
+                onClick={() => handleClicked()}
+              >
+                <div className="font-normal text-[12.8px] border-[1px] border-gray py-[5px] px-[7px] dark:text-white text-black cursor-pointer hover:bg-white-hover active:bg-white-active duration-300">
+                  {item.name}
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       )}
     </div>

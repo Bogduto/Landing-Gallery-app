@@ -1,7 +1,13 @@
 const url = `${process.env.DOMAIN}/api`
 
-export const searchProjectByName = (name) => {
-    // search project by name 
+export const searchProjectByName = async (name) => {
+    try {
+        const results = await fetch(`${url}/public-api/project/search/${name}/`)
+        const resultsJson = await results.json()
+        return resultsJson
+    } catch (error) {
+        console.error(error)
+    }
 }
 
 export const getAllProjectsClientByCategory = (category) => { }
@@ -22,7 +28,10 @@ export const getAllProjectsClient = async () => {
 }
 export const getAllProjectsAdmin = async () => {
     try {
-        const carts = await fetch(`${url}/private-api/project/getAll`)
+        const carts = await fetch(`${url}/private-api/project/getAll/`, {
+            method: "GET",
+            cache: "no-cache"
+        })
 
         const cartsJson = await carts.json()
 
@@ -47,7 +56,7 @@ export const getOneProject = async (id) => {
 
 export const deleteOneProject = async (id) => {
     try {
-        const deleteCart = await fetch(`${url}/private-api/project/management/remove/${id}`,
+        const deleteCart = await fetch(`${url}/private-api/project/management/remove/${id}/`,
             {
                 method: "DELETE"
             })
@@ -61,7 +70,7 @@ export const deleteOneProject = async (id) => {
 }
 export const updateOneProject = async (data) => {
     try {
-        const updateCart = await fetch(`${url}/private-api/project/management/update/${id}`, {
+        const updateCart = await fetch(`${url}/private-api/project/management/update/${id}/`, {
             method: "POST",
             body: JSON.stringify(data)
         })
@@ -75,7 +84,7 @@ export const updateOneProject = async (data) => {
 }
 export const acceptOneProject = async (id) => {
     try {
-        const acceptCart = await fetch(`${url}/private-api/project/management/accept/${id}`, {
+        const acceptCart = await fetch(`/api/private-api/project/management/accept/${id}/`, {
             method: "PUT"
         })
 
