@@ -23,7 +23,7 @@ const Header = () => {
               of the best landing page design inspiration.
             </div>
             {/* select */}
-            <Select data={categories} />
+            {/* <Select data={categories} /> */}
           </div>
           {/* right side */}
         </div>

@@ -1,5 +1,11 @@
 const url = `${process.env.DOMAIN}/api`
 
+export const searchProjectByName = (name) => {
+    // search project by name 
+}
+
+export const getAllProjectsClientByCategory = (category) => { }
+
 export const getAllProjectsClient = async () => {
     try {
         const carts = await fetch(`${url}/public-api/project/getAll`, {
@@ -28,7 +34,7 @@ export const getAllProjectsAdmin = async () => {
 export const getOneProject = async (id) => {
     try {
         const oneCart = await fetch(`${url}/public-api/project/${id}`, {
-            method:"GET"
+            method: "GET"
         })
 
         const oneCartJson = await oneCart.json()
@@ -41,10 +47,10 @@ export const getOneProject = async (id) => {
 
 export const deleteOneProject = async (id) => {
     try {
-        const deleteCart = await fetch(`${url}/private-api/project/management/remove/${id}`, 
-        {
-            method: "DELETE"
-        })
+        const deleteCart = await fetch(`${url}/private-api/project/management/remove/${id}`,
+            {
+                method: "DELETE"
+            })
 
         const deleteCartJson = await deleteCart.json()
 
