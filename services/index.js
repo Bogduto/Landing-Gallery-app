@@ -10,6 +10,24 @@ export const searchProjectByName = async (name) => {
     }
 }
 
+export const createOneProject = async (values) => {
+    try {
+        const createOne = await fetch(`${url}/public-api/project/createOne/`, {
+            method: "POST",
+            body: JSON.stringify(values),
+        });
+
+        const createOneJson = await createOne.json()
+
+        console.log(createOneJson)
+
+        return createOneJson
+
+    } catch (error) {
+        console.error(error)
+    }
+}
+
 export const getAllProjectsClientByCategory = (category) => { }
 
 export const getAllProjectsClient = async () => {

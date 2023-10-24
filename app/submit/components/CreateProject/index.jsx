@@ -1,9 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
+import { createOneProject } from "@/services";
 import { useRouter } from "next/navigation";
-import SubmitButton from "@/components/UI/Buttons/SubmitButton";
 import * as Yup from "yup";
+// components
+import SubmitButton from "@/components/UI/Buttons/SubmitButton";
 
 const registerProjectValidator = Yup.object().shape({
   description: Yup.string()
@@ -29,7 +31,7 @@ const CreateProject = () => {
       validationSchema={registerProjectValidator}
       onSubmit={async (values) => {
         setIsLoading(true);
-        await fetch(`http://localhost:3000/api/send/new`, {
+        await fetch(`http://localhost:3000/api/public-api/project/createOne/`, {
           method: "POST",
           body: JSON.stringify(values),
         });

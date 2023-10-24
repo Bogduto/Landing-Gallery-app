@@ -10,7 +10,7 @@ const Cart = ({ description, name, image, categories }) => {
       </div>
       {/* name */}
 
-      <Link href={"/detail/my-travel"}>
+      <Link href={`/${name}`}>
         <div className="mb-[5px] text-[20px] font-normal text-black dark:text-[#C8C8C8] tracking-[0.32px] leading-[17px] capitalize">
           {name}
         </div>

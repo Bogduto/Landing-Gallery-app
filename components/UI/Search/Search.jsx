@@ -8,7 +8,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const Search = () => {
   const [value, setValue] = useState("");
-  const [isShow, setIsShow] = useState(true);
+  const [isShow, setIsShow] = useState(false);
   const currentPath = usePathname();
 
   const handleChangeShow = () => {
@@ -45,7 +45,7 @@ const Search = () => {
         />
         <button
           className="relative w-[20px] h-[20px]"
-          onClick={handleChangeShow}
+          onClick={() => (!value.length ? handleChangeShow() : setValue(""))}
           type="button"
         >
           {value.length > 0 ? (

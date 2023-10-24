@@ -28,12 +28,14 @@ async function MakeScrenshot(url) {
 export async function POST(req, res) {
     try {
         let body = await req.json()
+        console.log(body)
         
         await connectMongodb()
         const pathName = await MakeScrenshot(body.websiteUrl)
         body.screenshot = pathName
-        const cart = await cartModel
 
+
+        const cart = await cartModel
         const newCart = await cart.create(body)
 
         return NextResponse.json({

@@ -5,7 +5,6 @@ import Link from "next/link";
 import Container from "@/components/Layout/Container/Container";
 import Cart from "./Cart/Cart";
 const Carts = ({ data }) => {
-  console.log(data);
   return (
     <div className="w-full h-full">
       <Container>

@@ -46,7 +46,7 @@ const Detail = () => {
                 email: example@gmail.com
               </div>
               <div className="flex flex-row gap-[5px]">
-                <div>categories: </div>
+                <div>topic: </div>
                 <div className="flex flex-row items-center gap-[10px] flex-wrap">
                   <div>scss,</div>
                   <div>ai,</div>
