@@ -1,6 +1,5 @@
-import jwt from "jsonwebtoken"
 import { NextResponse } from "next/server"
-
+import jwt from "jsonwebtoken"
 
 export async function GET(req, { params }) {
     try {
@@ -12,6 +11,6 @@ export async function GET(req, { params }) {
             status: 200
         })
     } catch (error) {
-
+        throw new Error(error)
     }
 }

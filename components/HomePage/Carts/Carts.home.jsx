@@ -9,7 +9,7 @@ const Carts = ({ data }) => {
     <div className="w-full h-full">
       <Container>
         <div className="pb-[50px] w-full h-full flex flex-row flex-wrap items-center gap-[37.55px] justify-between">
-          {data.length
+          {data && data.length
             ? data.map((item, key) => (
                 <Cart
                   key={key}
