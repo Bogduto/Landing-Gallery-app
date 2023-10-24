@@ -3,12 +3,14 @@ import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { categoriesArray } from "@/constants";
 import SubmitButton from "@/components/UI/Buttons/SubmitButton";
+import FormFieldCart from "@/components/UI/Form/FormField";
 
-const EditForm = () => {
+const EditForm = ({ project }) => {
   const [values, setValues] = useState({
     categories: [],
-    description: "",
-    websiteUrl: "",
+    description: project.description,
+    websiteUrl: project.websiteUrl,
+    name: project.name,
   });
 
   const handleAddCategorie = (value) => {
@@ -17,6 +19,7 @@ const EditForm = () => {
       categories: [...prevValues.categories, value],
     }));
   };
+
   const handleDeleteCategorie = (value) => {
     setValues((prevValues) => ({
       ...prevValues,
@@ -24,71 +27,67 @@ const EditForm = () => {
     }));
   };
 
+  const [onShow, setOnShow] = useState(false);
+
+  const handleChangeStatus = () => {
+    setOnShow(!onShow);
+  };
   return (
-    <Formik initialValues={values}>
+    <Formik
+      initialValues={values}
+      onSubmit={async (values) => {
+        console.log("submit", values);
+      }}
+    >
       <Form className="relative flex flex-col gap-[25px] mt-[24px] mobile:w-full desktop:w-[500px]">
-        <div className="flex flex-col gap-[8.8px]">
-          <Label name={"email"}>Your email</Label>
+        <FormFieldCart name="name" placeholder={"project name"} />
+        <FormFieldCart name="websiteUrl" placeholder={"website url"} />
+        <FormFieldCart
+          name="description"
+          placeholder={"description"}
+          as={"textarea"}
+          style={{
+            height: "300px",
+          }}
+        />
 
-          <Field
-            className="focus:border-orange focus:border-[3px] py-[12.2px] px-[12.3px] border-[3px] text-black  border-[#CBD5E1] bg-[#F1F5F9] rounded-[8.5px] text-[14.9px] placeholder:text-[#6B7280] font-normal capitalize"
-            name={"email"}
-            id={"email"}
-            placeholder={"your email"}
-          />
-          <ErrorMessage
-            name={"email"}
-            render={(msg) => (
-              <div className="text-[#FF0000] text-[12px] font-normal">
-                {msg}
-              </div>
-            )}
-          />
-        </div>
-        <div className="flex flex-col gap-[8.8px]">
-          <Label name={"websiteUrl"}>Website URL</Label>
-
-          <Field
-            className="focus:border-orange focus:border-[3px] py-[12.2px] px-[12.3px] border-[3px] text-black border-[#CBD5E1] bg-[#F1F5F9] rounded-[8.5px] mobile:text-[14px] desktop:text-[14.9px] placeholder:text-[#6B7280] font-normal capitalize"
-            name={"websiteUrl"}
-            id={"websiteUrl"}
-            placeholder={"website url"}
-          />
-
-          <ErrorMessage
-            name={"websiteUrl"}
-            render={(msg) => (
-              <div className="text-[#FF0000] text-[12px] font-normal">
-                {msg}
-              </div>
-            )}
-          />
-        </div>
-        <div className="flex flex-col gap-[8.8px]">
-          <Label name={"description"}>Description</Label>
-          <Field
-            className="focus:border-orange focus:border-[3px] py-[12.2px] px-[12.3px] border-[3px] text-black  border-[#CBD5E1] bg-[#F1F5F9] rounded-[8.5px] text-[14.9px] placeholder:text-[#6B7280] font-normal capitalize"
-            name={"description"}
-            id={"description"}
-            as="textarea"
-            placeholder={"description"}
-          />
-
-          <ErrorMessage
-            name={"description"}
-            render={(msg) => (
-              <div className="text-[#FF0000] text-[12px] font-normal">
-                {msg}
-              </div>
-            )}
-          />
-        </div>
         <div className="">
           <CategoriesContainer
             handleDeleteCategorie={handleDeleteCategorie}
             values={values}
-          />
-          <AddCategorieButton handleAddCategorie={handleAddCategorie} />
+          >
+            {values.categories &&
+              values.categories.map((item, key) => (
+                <button
+                  key={key}
+                  type="button"
+                  className="inline-block gap-[5px] p-[12px]  border-[2px] border-[#CBD5E1] bg-[#F1F5F9] rounded-[8.5px] text-[14.9px] placeholder:text-[#6B7280] font-normal capitalize dark:text-white dark:bg-black bg-white text-black"
+                  onClick={() => handleDeleteCategorie(item.text)}
+                >
+                  <div>{item.icon}</div>
+
+                  {item.text}
+                </button>
+              ))}
+          </CategoriesContainer>
+
+          <AddCategorieButton
+            onClick={() => handleChangeStatus()}
+          >
+            {onShow && (
+              <DrawAllCategories>
+                {categoriesArray.map((item, key) => (
+                  <DrawCategoryCart
+                    key={key}
+                    onClick={() => handleAddCategorie(item)}
+                    icon={item.icon}
+                  >
+                    {item.text}
+                  </DrawCategoryCart>
+                ))}
+              </DrawAllCategories>
+            )}
+          </AddCategorieButton>
         </div>
         <div>
           <SubmitButton>update cart</SubmitButton>
@@ -98,59 +97,23 @@ const EditForm = () => {
   );
 };
 
-const CategoriesContainer = ({ values, handleDeleteCategorie }) => {
+const CategoriesContainer = ({ children }) => {
   return (
     <div className="flex flex-row items-center gap-[10px] flex-wrap">
-      {values.categories &&
-        values.categories.map((item, key) => (
-          <button
-            key={key}
-            type="button"
-            className="inline-block gap-[5px] p-[12px]  border-[2px] border-[#CBD5E1] bg-[#F1F5F9] rounded-[8.5px] text-[14.9px] placeholder:text-[#6B7280] font-normal capitalize dark:text-white dark:bg-black bg-white text-black"
-            onClick={() => handleDeleteCategorie(item.text)}
-          >
-            <div>{item.icon}</div>
-
-            {item.text}
-          </button>
-        ))}
+      {children}
     </div>
   );
 };
 
-const AddCategorieButton = ({ ...props }) => {
-  const [onShow, setOnShow] = useState(false);
+const AddCategorieButton = ({ children, ...props }) => {
   return (
     <div className="">
-      <button onClick={() => setOnShow(!onShow)} type="button">
+      <button {...props} type="button">
         add new category
       </button>
 
-      {onShow && (
-        <DrawAllCategories>
-          {categoriesArray.map((item, key) => (
-            <DrawCategoryCart
-              key={key}
-              onClick={() => props.handleAddCategorie(item)}
-              icon={item.icon}
-            >
-              {item.text}
-            </DrawCategoryCart>
-          ))}
-        </DrawAllCategories>
-      )}
-    </div>
-  );
-};
-
-const Label = ({ name, children }) => {
-  return (
-    <label
-      className="dark:text-white text-[#111827] text-[14.9px] font-normal leading-[21.25px]"
-      htmlFor={name}
-    >
       {children}
-    </label>
+    </div>
   );
 };
 

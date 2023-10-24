@@ -12,12 +12,12 @@ const unbounded = Unbounded({
 export const metadata = {
   title: 'Landing Gallery',
   description: 'Landing Gallery clone',
-  icons: "/favicon.ico"
+  icons: "./favicon.ico"
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html suppressHydrationWarning lang="en">
       <body className={`${unbounded.className} w-full h-full bg-white dark:bg-black`}>
         <Template>
           <div className='w-full h-full flex flex-col justify-between'>

@@ -2,7 +2,6 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import { useRouter } from "next/navigation";
-
 // validator
 import { loginAdminValidator } from "@/validations/YapValidator";
 // components
@@ -11,7 +10,6 @@ import SubmitButton from "@/components/UI/Buttons/SubmitButton";
 
 const AdminLogin = () => {
   const router = useRouter();
-
   return (
     <Formik
       initialValues={{
@@ -29,7 +27,7 @@ const AdminLogin = () => {
         <FormFieldCart name={"password"} placeholder={"your password"} />
 
         <div className="mt-[26px] mobile:text-center desktop:text-start">
-          <SubmitButton>Login</SubmitButton>
+          <SubmitButton>Sign In</SubmitButton>
         </div>
       </Form>
     </Formik>

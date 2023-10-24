@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-
 // services
 import ButtonsContainer from "../ButtonsContainer";
 
@@ -25,10 +24,10 @@ const AdminCart = ({
         {name ? name : description}
       </div>
       <div className="text-[13px]">email: {email}</div>
-      <Link href={websiteUrl}>
+      <Link href={`${websiteUrl}`}>
         <div className="text-[13px]">url: {websiteUrl}</div>
       </Link>
-      <ButtonsContainer />
+      <ButtonsContainer id={_id} />
     </div>
   );
 };

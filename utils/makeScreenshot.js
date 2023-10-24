@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { uid } from 'uid'
+import puppeteer from 'puppeteer'
 
 const MakeScrenshot = async (url) => {
     const browser = await puppeteer.launch();

@@ -60,7 +60,7 @@ export const getAllProjectsAdmin = async () => {
 }
 export const getOneProject = async (id) => {
     try {
-        const oneCart = await fetch(`${url}/public-api/project/${id}`, {
+        const oneCart = await fetch(`${url}/public-api/project/${id}/`, {
             method: "GET"
         })
 

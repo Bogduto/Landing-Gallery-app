@@ -8,10 +8,10 @@ import {
   } from "@/services";
 import Button from "../Button";
   
-const ButtonsContainer = (_id) => {
+const ButtonsContainer = ({id}) => {
   return (
     <div className="flex flex-row gap-[10px] mt-[20px] items-center">
-      <Button onClick={() => acceptOneProject(_id)}>
+      <Button onClick={() => acceptOneProject(id)}>
         <svg
           width="24"
           height="24"
@@ -31,7 +31,7 @@ const ButtonsContainer = (_id) => {
         </svg>
       </Button>
 
-      <Link href={`/login/edit/${_id}`}>
+      <Link href={`/admin/edit/${id}`}>
         <button
           type="button"
           className="border-[3px] dark:bg-white bg-black hover:bg-black-hover dark:hover:bg-white-hover dark:active:border-white-active active:border-black-active duration-300 rounded-[10px] p-[5px]"
@@ -64,7 +64,7 @@ const ButtonsContainer = (_id) => {
         </button>
       </Link>
 
-      <Button onClick={() => deleteOneProject(_id)}>
+      <Button onClick={() => deleteOneProject(id)}>
         <svg
           width="24"
           height="24"

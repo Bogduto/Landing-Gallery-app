@@ -5,8 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import Search from "@/components/UI/Search/Search";
 import Burger from "@/components/UI/Burger/Burger";
-import ToggleTheme from "@/components/UI/ToggleTheme/ToggleTheme";
+import dynamic from "next/dynamic";
 
+const ToggleTheme = dynamic(
+  () => import("@/components/UI/ToggleTheme/ToggleTheme"),
+  {ssr: false}
+);
 const Navbar = () => {
   return (
     <div className="w-full h-[46px] bg-inherit">

@@ -11,7 +11,7 @@ export async function POST(req, { params }) {
 
         const cart = await cartModel
         const findAndUpdateCart = await cart.updateOne({ _id: id }, {
-            $set: body
+            $set: body,
         })
 
         return NextResponse.json({ msg: "updated" }, { status: 200 })

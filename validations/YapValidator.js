@@ -10,7 +10,6 @@ export const createNewProjectValidator = Yup.object().shape({
   name: Yup.string().required("name is required"),
 });
 
-
 export const loginAdminValidator = Yup.object().shape({
   username: Yup.string().email("Invalid username").required("email is required"),
   password: Yup.string().required("password is required"),
