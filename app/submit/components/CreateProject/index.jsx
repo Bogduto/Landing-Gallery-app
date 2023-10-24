@@ -1,21 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import { Formik, Field, Form, ErrorMessage } from "formik";
-import { createOneProject } from "@/services";
+import { Formik, Form } from "formik";
 import { useRouter } from "next/navigation";
-import * as Yup from "yup";
+// validator
+import { createNewProjectValidator } from "@/validations/YapValidator";
 // components
 import SubmitButton from "@/components/UI/Buttons/SubmitButton";
-
-const registerProjectValidator = Yup.object().shape({
-  description: Yup.string()
-    .min(40, "Too Short!")
-    .max(500, "Too Long!")
-    .required("deskription is Required"),
-  email: Yup.string().email("Invalid email").required("email is required"),
-  websiteUrl: Yup.string().required("websiteUrl is required"),
-  name: Yup.string().required("name is required"),
-});
+import CreateProjectCart from "../CreateProjectCart";
 
 const CreateProject = () => {
   const router = useRouter();
@@ -28,7 +19,7 @@ const CreateProject = () => {
         email: "",
         name: "",
       }}
-      validationSchema={registerProjectValidator}
+      validationSchema={createNewProjectValidator}
       onSubmit={async (values) => {
         setIsLoading(true);
         await fetch(`http://localhost:3000/api/public-api/project/createOne/`, {
@@ -40,81 +31,18 @@ const CreateProject = () => {
       }}
     >
       <Form className="flex flex-col gap-[25px] mt-[24px] mobile:w-full desktop:w-[500px]">
-        <div className="flex flex-col gap-[8.8px]">
-          <Label name={"name"}>Project name</Label>
+        <CreateProjectCart name={"name"} placeholder={"project name"} />
 
-          <Field
-            className="focus:border-orange focus:border-[3px] py-[12.2px] px-[12.3px] border-[3px] text-black  border-[#CBD5E1] bg-[#F1F5F9] rounded-[8.5px] text-[14.9px] placeholder:text-[#6B7280] font-normal capitalize"
-            name={"name"}
-            id={"name"}
-            placeholder={"project name"}
-          />
-          <ErrorMessage
-            name={"name"}
-            render={(msg) => (
-              <div className="text-[#FF0000] text-[12px] font-normal">
-                {msg}
-              </div>
-            )}
-          />
-        </div>
+        <CreateProjectCart name={"email"} placeholder={"your email"} />
 
-        <div className="flex flex-col gap-[8.8px]">
-          <Label name={"email"}>Your email</Label>
+        <CreateProjectCart name={"websiteUrl"} placeholder={"website url"} />
 
-          <Field
-            className="focus:border-orange focus:border-[3px] py-[12.2px] px-[12.3px] border-[3px] text-black  border-[#CBD5E1] bg-[#F1F5F9] rounded-[8.5px] text-[14.9px] placeholder:text-[#6B7280] font-normal capitalize"
-            name={"email"}
-            id={"email"}
-            placeholder={"your email"}
-          />
-          <ErrorMessage
-            name={"email"}
-            render={(msg) => (
-              <div className="text-[#FF0000] text-[12px] font-normal">
-                {msg}
-              </div>
-            )}
-          />
-        </div>
-        <div className="flex flex-col gap-[8.8px]">
-          <Label name={"websiteUrl"}>Website URL</Label>
+        <CreateProjectCart
+          name={"description"}
+          placeholder={"description"}
+          as={"textarea"}
+        />
 
-          <Field
-            className="focus:border-orange focus:border-[3px] py-[12.2px] px-[12.3px] border-[3px] text-black border-[#CBD5E1] bg-[#F1F5F9] rounded-[8.5px] mobile:text-[14px] desktop:text-[14.9px] placeholder:text-[#6B7280] font-normal capitalize"
-            name={"websiteUrl"}
-            id={"websiteUrl"}
-            placeholder={"website url"}
-          />
-
-          <ErrorMessage
-            name={"websiteUrl"}
-            render={(msg) => (
-              <div className="text-[#FF0000] text-[12px] font-normal">
-                {msg}
-              </div>
-            )}
-          />
-        </div>
-        <div className="flex flex-col gap-[8.8px]">
-          <Label name={"description"}>Description</Label>
-          <Field
-            className="focus:border-orange focus:border-[3px] py-[12.2px] px-[12.3px] border-[3px] text-black  border-[#CBD5E1] bg-[#F1F5F9] rounded-[8.5px] text-[14.9px] placeholder:text-[#6B7280] font-normal capitalize"
-            name={"description"}
-            id={"description"}
-            as="textarea"
-            placeholder={"description"}
-          />
-
-          <ErrorMessage
-            name={"description"}
-            render={(msg) => (
-              <div className="text-[#FF0000] text-[12px] font-normal">
-                {msg}
-              </div>
-            )}
-          />
-        </div>
         <div className="mt-[26px] mobile:text-center desktop:text-start">
           <SubmitButton>
             {isLoading ? (
@@ -144,17 +72,6 @@ const CreateProject = () => {
         </div>
       </Form>
     </Formik>
-  );
-};
-
-const Label = ({ name, children }) => {
-  return (
-    <label
-      className="dark:text-white text-[#111827] text-[14.9px] font-normal leading-[21.25px]"
-      htmlFor={name}
-    >
-      {children}
-    </label>
   );
 };
 
