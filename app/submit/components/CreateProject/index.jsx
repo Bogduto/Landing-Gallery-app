@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { createNewProjectValidator } from "@/validations/YapValidator";
 // components
 import SubmitButton from "@/components/UI/Buttons/SubmitButton";
-import CreateProjectCart from "../CreateProjectCart";
+import FormFieldCart from "../../../../components/UI/Form/FormField";
 
 const CreateProject = () => {
   const router = useRouter();
@@ -31,13 +31,13 @@ const CreateProject = () => {
       }}
     >
       <Form className="flex flex-col gap-[25px] mt-[24px] mobile:w-full desktop:w-[500px]">
-        <CreateProjectCart name={"name"} placeholder={"project name"} />
+        <FormFieldCart name={"name"} placeholder={"project name"} />
 
-        <CreateProjectCart name={"email"} placeholder={"your email"} />
+        <FormFieldCart name={"email"} placeholder={"your email"} />
 
-        <CreateProjectCart name={"websiteUrl"} placeholder={"website url"} />
+        <FormFieldCart name={"websiteUrl"} placeholder={"website url"} />
 
-        <CreateProjectCart
+        <FormFieldCart
           name={"description"}
           placeholder={"description"}
           as={"textarea"}

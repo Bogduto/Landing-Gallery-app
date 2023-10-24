@@ -4,7 +4,7 @@ import { Field, ErrorMessage } from "formik";
 // components
 import Label from "../Label";
 
-const CreateProjectCart = ({name, placeholder, ...props}) => {
+const FormFieldCart = ({name, placeholder, ...props}) => {
   return (
     <div className="flex flex-col gap-[8.8px]">
       <Label name={name}>{name}</Label>
@@ -26,4 +26,4 @@ const CreateProjectCart = ({name, placeholder, ...props}) => {
   );
 };
 
-export default CreateProjectCart;
+export default FormFieldCart;
