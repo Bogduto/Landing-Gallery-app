@@ -7,11 +7,22 @@ export async function POST(req, { params }) {
         const id = params.id
         const body = await req.json()
 
+        // new data
+        let newData = {}
+
+        for (const item of Object.keys(body)) {
+            if (item == "categories") continue
+            newData[item] = body[item]
+        }
+
         await connectMongodb()
 
         const cart = await cartModel
         const findAndUpdateCart = await cart.updateOne({ _id: id }, {
-            $set: body,
+            $set: newData,
+            $push: {
+                categories: { $each: body.categories }
+            }
         })
 
         return NextResponse.json({ msg: "updated" }, { status: 200 })
