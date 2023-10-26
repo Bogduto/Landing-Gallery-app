@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { FieldArray } from "formik";
 import { categoriesArray } from "@/constants";
-
+import PopUpWindow from "@/components/UI/PopUpWindow";
 const Category = () => {
   const [onShow, setOnShow] = useState(false);
   const [added, setAdded] = useState([]);
@@ -15,6 +15,14 @@ const Category = () => {
     return setOnShow(false);
   };
 
+  const handleDeleteFromAdded = (item1) => {
+    return setAdded((prev) => prev.filter((item2) => item1.text != item2.text));
+  };
+
+  const handleSelected = (item1) => {
+    return added.find((item2) => item1.text == item2.text);
+  };
+
   console.log(added);
   return (
     <div>
@@ -23,15 +31,21 @@ const Category = () => {
           added.map((item, key) => <div key={key}>{item.text}</div>)}
       </div>
 
-      {onShow && (
+      {/* {onShow && (
+        
+      )} */}
+
+      <PopUpWindow onShowState={onShow} buttonName={"new categories"}>
         <FieldArray name="categories">
           {({ insert, push }) => (
-            <div className="flex flex-col flex-wrap gap-[10px] items-start">
+            <div className="overflow-y-scroll w-full h-full flex flex-col gap-[10px] items-start">
               {categoriesArray.map((category, index) => (
                 <div
-                  className="w-full px-[20px] py-[12px] flex flex-row cursor-pointer hover:bg-black-hover active:bg-black-active"
+                  className={`w-full px-[20px] py-[12px] flex flex-row cursor-pointer ${
+                    handleSelected(category) && "bg-black-hover"
+                  } hover:bg-black-hover active:bg-black-active`}
                   key={index}
-                  onClick={() => handleChangeAdded(category, push)}
+                  onClick={() => handleSelected(category) ? handleDeleteFromAdded(category) : handleChangeAdded(category, push)}
                 >
                   <div>{category.icon}</div> {category.text}
                 </div>
@@ -39,11 +53,11 @@ const Category = () => {
             </div>
           )}
         </FieldArray>
-      )}
+      </PopUpWindow>
 
-      <button onClick={() => setOnShow(!onShow)} type="button">
+      {/* <button onClick={() => setOnShow(!onShow)} type="button">
         new categories
-      </button>
+      </button> */}
     </div>
   );
 };

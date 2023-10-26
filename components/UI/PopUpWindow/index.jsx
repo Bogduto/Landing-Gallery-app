@@ -6,9 +6,8 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 const PopUpWindow = ({ buttonName, onShowState, searchValue, searchChangeValue, children }) => {
-  const [onShow, setOnShow] = useState(onShowState ? onShowState : false);
+  const [onShow, setOnShow] = useState(onShowState != null? onShowState : false);
   const params = usePathname();
-
   // if url changes
   useEffect(() => {
     handleClose();
@@ -48,7 +47,7 @@ const PopUpWindow = ({ buttonName, onShowState, searchValue, searchChangeValue, 
                 onChange={(e) => searchChangeValue(e.target.value)}
               />
             </div>
-            <div className="flex flex-col">{children}</div>
+            <div className="flex flex-col w-full h-full">{children}</div>
           </div>
 
           {/* close */}
