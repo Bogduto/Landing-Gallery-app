@@ -3,6 +3,7 @@ import Container from "@/components/Layout/Container/Container";
 import React, { useState } from "react";
 import Select from "@/components/UI/Select/Select";
 import { categoriesArray } from "@/constants";
+import PopUpWindow from "@/components/UI/PopUpWindow";
 
 const Header = () => {
   const [categories, setCategories] = useState(categoriesArray);
@@ -23,6 +24,7 @@ const Header = () => {
               of the best landing page design inspiration.
             </div>
             {/* select */}
+            <PopUpWindow buttonName={"pop up"}>datas</PopUpWindow>
             {/* <Select data={categories} /> */}
           </div>
           {/* right side */}

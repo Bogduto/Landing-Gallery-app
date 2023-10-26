@@ -19,8 +19,6 @@ export const createOneProject = async (values) => {
 
         const createOneJson = await createOne.json()
 
-        console.log(createOneJson)
-
         return createOneJson
 
     } catch (error) {
@@ -28,7 +26,17 @@ export const createOneProject = async (values) => {
     }
 }
 
-export const getAllProjectsClientByCategory = (category) => { }
+export const getAllProjectsClientByCategory = async (category) => {
+    try {
+        const carts = await fetch(`${url}/public-api/project/getProjectsByCategory/${category}/`)
+
+        const cartsJson = await carts.json()
+
+        return cartsJson
+    } catch (error) {
+        console.error(error)
+    }
+}
 
 export const getAllProjectsClient = async () => {
     try {
