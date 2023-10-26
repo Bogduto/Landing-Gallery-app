@@ -113,7 +113,7 @@ const SelectOption = ({ children, buttonValue, icon, ...props }) => {
   return (
     <Link
       href={{
-        query: { categories: children },
+        query: { category: children },
       }}
       {...props}
       className={`${

@@ -1,9 +1,10 @@
 "use client";
 import React from "react";
-import Container from "../Container/Container";
 import Image from "next/image";
 import { categoriesArray } from "@/constants";
-
+import Link from "next/link";
+// components
+import Container from "../Container/Container";
 const Footer = () => {
   return (
     <div className="w-full bg-footer-color mobile:py-[68px] desktop:py-[136px]">
@@ -43,13 +44,19 @@ const Footer = () => {
                   {categoriesArray
                     .slice(0, categoriesArray.length / 2)
                     .map((item, key) => (
-                      <div
-                        className="flex flex-row gap-[5px]duration-300 cursor-pointer capitalize text-[14.9px] text-[#D1D5DB] hover:text-white font-normal leading-[25.5px]"
+                      <Link
                         key={key}
+                        href={{
+                          query: {
+                            category: item.text,
+                          },
+                        }}
                       >
-                        <div>{item.icon}</div>
-                        {item.text}
-                      </div>
+                        <div className="flex flex-row gap-[5px]duration-300 cursor-pointer capitalize text-[14.9px] text-[#D1D5DB] hover:text-white font-normal leading-[25.5px]">
+                          <div>{item.icon}</div>
+                          {item.text}
+                        </div>
+                      </Link>
                     ))}
                 </div>
 
@@ -60,13 +67,19 @@ const Footer = () => {
                       categoriesArray.length
                     )
                     .map((item, key) => (
-                      <div
-                        className="flex flex-row gap-[5px]duration-300 cursor-pointer capitalize text-[14.9px] text-[#D1D5DB] hover:text-white font-normal leading-[25.5px]"
+                      <Link
                         key={key}
+                        href={{
+                          query: {
+                            category: item.text,
+                          },
+                        }}
                       >
-                        <div>{item.icon}</div>
-                        {item.text}
-                      </div>
+                        <div className="flex flex-row gap-[5px]duration-300 cursor-pointer capitalize text-[14.9px] text-[#D1D5DB] hover:text-white font-normal leading-[25.5px]">
+                          <div>{item.icon}</div>
+                          {item.text}
+                        </div>
+                      </Link>
                     ))}
                 </div>
               </div>

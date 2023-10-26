@@ -33,7 +33,7 @@ const CategoriesCarts = () => {
             <Link
               key={key}
               href={{
-                query: { categories: item.text },
+                query: { category: item.text },
               }}
             >
               <div className="mx-[5px] flex desktop:text-[15px] mobile:text-[13px] flex-row gap-[5px] border-[1px] rounded-[7px] px-[10px] py-[5px] border-dashed hover:border-solid dark:border-gray dark:active:bg-black-hover active:bg-white-hover border-black duration-300">
