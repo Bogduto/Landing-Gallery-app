@@ -41,6 +41,7 @@ const CreateProject = () => {
           name={"description"}
           placeholder={"description"}
           as={"textarea"}
+          style={{height: "300px"}}
         />
 
         <div className="mt-[26px] mobile:text-center desktop:text-start">

@@ -35,7 +35,7 @@ const Category = () => {
 
   return (
     <div>
-      <div className="flex flex-row gap-[10px]">
+      <div className="flex mobile:flex-col desktop:flex-row gap-[10px]">
         <div>Categories:</div>
         <div className="flex flex-row flex-wrap gap-[5px]">
           {added.length
