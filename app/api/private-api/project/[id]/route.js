@@ -1,12 +1,23 @@
+import connectMongodb from "@/connects/mongoose"
+import cartModel from "@/schemas/CartModel"
 import { NextResponse } from "next/server"
 
-
-export async function GET(req, res) {
+export async function GET(req, { params }) {
     try {
-        // puppeteer lib for screenshot main page
-        NextResponse.json({
-            msg: "one post"
-        }, {status: 200})        
+        const id = params.id
+
+        await connectMongodb()
+
+        const cart = await cartModel
+
+        const findOneCart = await cart.findOne({ _id: id })
+        
+        return NextResponse.json({
+            msg: "get one cart",
+            cart: findOneCart
+        }, {
+            status: 200
+        })
     } catch (error) {
         throw new Error(error)
     }

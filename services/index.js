@@ -71,9 +71,25 @@ export const getAllProjectsAdmin = async () => {
         console.error(error)
     }
 }
-export const getOneProject = async (id) => {
+
+export const getOneProjectById = async (id) => {
     try {
-        const oneCart = await fetch(`${url}/public-api/project/${id}/`, {
+        const oneCart = await fetch(`${url}/private-api/project/${id}/`, {
+            method: "GET",
+            cache: "no-store"
+        })
+
+        const oneCartJson = await oneCart.json()
+
+        return oneCartJson
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+export const getOneProject = async (name) => {
+    try {
+        const oneCart = await fetch(`${url}/public-api/project/${name}/`, {
             method: "GET",
             cache: "no-store"
         })

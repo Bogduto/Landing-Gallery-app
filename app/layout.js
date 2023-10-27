@@ -12,7 +12,6 @@ const unbounded = Unbounded({
 export const metadata = {
   title: 'Landing Gallery',
   description: 'Landing Gallery clone',
-  icons: "./favicon.ico"
 }
 
 export default function RootLayout({ children }) {

@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { FieldArray } from "formik";
 import { categoriesArray } from "@/constants";
 import PopUpWindow from "@/components/UI/PopUpWindow";
-const Category = () => {
+const Category = ({ categories }) => {
   const [onShow, setOnShow] = useState(false);
-  const [added, setAdded] = useState([]);
+  const [added, setAdded] = useState(categories ? categories : []);
   const [searchValue, setSearchValue] = useState("");
 
   const handleChangeSearchValue = (text) => {
@@ -33,18 +33,20 @@ const Category = () => {
     return;
   };
 
+  console.log("added", added);
   return (
     <div>
       <div className="flex mobile:flex-col desktop:flex-row gap-[10px]">
         <div>Categories:</div>
         <div className="flex flex-row flex-wrap gap-[5px]">
           {added.length
-            ? added.map((item, key) => <div key={key}>{item.text}</div>)
+            ? added.map((item, key) => (
+                <div key={key}>{item?.text ? item.text : item}</div>
+              ))
             : null}
         </div>
       </div>
 
-      
       <PopUpWindow onShowState={onShow} buttonName={"new categories"}>
         <FieldArray name="categories">
           {({ insert, push, remove }) => (

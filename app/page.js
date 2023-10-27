@@ -10,7 +10,7 @@ import CategoriesCarts from '@/components/Layout/Categories'
 
 export default async function Home({ searchParams }) {
   const carts = await getAllProjectsClientByCategory(searchParams?.category)
-  console.log(carts)
+ 
   return (
     <main className="">
       <CategoriesCarts />

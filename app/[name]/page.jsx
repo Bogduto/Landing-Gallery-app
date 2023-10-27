@@ -6,7 +6,7 @@ const DetailPage = async ({ params }) => {
   const cart = await getOneProject(params.name);
 
   return (
-    <div className="desktop:minH-screen w-full">
+    <div className="desktop:minH-screen w-full z-10">
       <Detail
         description={cart.cart.description}
         screenshot={`/uploads/${cart.cart.screenshot}`}

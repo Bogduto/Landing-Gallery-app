@@ -15,6 +15,8 @@ const EditForm = ({ project }) => {
     name: project.name,
   });
 
+  console.log(values)
+
   const [onLoading, setOnLoading] = useState(false);
 
   return (
@@ -58,7 +60,7 @@ const EditForm = ({ project }) => {
           }}
         />
 
-        <Category />
+        <Category categories={values.categories}/>
 
         <div>
           <SubmitButton>update cart</SubmitButton>

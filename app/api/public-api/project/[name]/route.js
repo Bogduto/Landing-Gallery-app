@@ -4,7 +4,7 @@ import { NextResponse } from "next/server"
 
 export async function GET(req, { params }) {
     try {
-        const name = params.id
+        const name = params.name
 
         await connectMongodb()
 

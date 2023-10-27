@@ -5,8 +5,16 @@ import useOutsideClick from "@/hooks/useClickOutside";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
-const PopUpWindow = ({ buttonName, onShowState, searchValue, searchChangeValue, children }) => {
-  const [onShow, setOnShow] = useState(onShowState != null? onShowState : false);
+const PopUpWindow = ({
+  buttonName,
+  onShowState,
+  searchValue,
+  searchChangeValue,
+  children,
+}) => {
+  const [onShow, setOnShow] = useState(
+    onShowState != null ? onShowState : false
+  );
   const params = usePathname();
   // if url changes
   useEffect(() => {
@@ -27,18 +35,18 @@ const PopUpWindow = ({ buttonName, onShowState, searchValue, searchChangeValue, 
   useOutsideClick(ref, handleClose);
 
   return (
-    <div className="">
+    <div>
       <button type="button" onClick={handleChange}>
         {buttonName}
       </button>
 
       {onShow && (
-        <div className="z-100 fixed left-0 top-0 flex flex-row backdrop-blur-[2px] justify-center items-center dark:bg-black-alpha bg-white-alpha w-full h-screen">
+        <div className="z-50	 fixed left-0 top-0 flex flex-row backdrop-blur-[2px] justify-center items-center dark:bg-black-alpha bg-white-alpha w-full h-screen">
           <div
             ref={ref}
-            className="overflow-hidden mobile:w-full mobile:h-full desktop:w-[600px] desktop:h-[550px] desktop:rounded-[15px] desktop:border-[1px] desktop:dark:border-white-hover desktop:border-black p-[20px] dark:bg-black bg-white"
+            className="z-50 overflow-hidden mobile:w-full mobile:h-full desktop:w-[600px] desktop:h-[550px] desktop:rounded-[15px] desktop:border-[1px] desktop:dark:border-white-hover desktop:border-black p-[20px] dark:bg-black bg-white"
           >
-            {searchValue ? <div className="w-full h-[40px]">
+            <div className="w-full h-[40px]">
               <input
                 className="dark:text-white dark:placeholder:text-white-hover text-black placeholder:textt-black-hover placeholder:capitalize pb-[8px] border-b-[2px] border-white-active w-full"
                 type="text"
@@ -46,8 +54,10 @@ const PopUpWindow = ({ buttonName, onShowState, searchValue, searchChangeValue, 
                 value={searchValue}
                 onChange={(e) => searchChangeValue(e.target.value)}
               />
-            </div> : null}
-            <div className="flex flex-col w-full py-[15px] h-full">{children}</div>
+            </div>
+            <div className="flex flex-col w-full py-[15px] h-full">
+              {children}
+            </div>
           </div>
 
           {/* close */}

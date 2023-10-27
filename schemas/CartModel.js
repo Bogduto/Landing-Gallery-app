@@ -11,6 +11,14 @@ const CartModel = mongoose.Schema({
     },
     categories: [
         {
+            icon: {
+                require: true,
+                type: String
+            },
+            text: {
+                require: true,
+                type: String
+            },
             require: false,
             type: String,
             default: []

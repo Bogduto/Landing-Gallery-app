@@ -1,17 +1,18 @@
 import React from "react";
 // services
-import { getOneProject } from "@/services";
+import { getOneProjectById } from "@/services";
 // components
 import EditForm from "./components/EditForm";
 import Container from "@/components/Layout/Container/Container";
 
 const EditCart = async ({ params }) => {
   const projectId = params.id;
-  const project = await getOneProject(projectId);
+  const project = await getOneProjectById(projectId);
+  
   return (
-    <div className="w-full py-[50px] minH-screen text-black bg-white dark:bg-black dark:text-white">
+    <div className="z-10 w-full py-[50px] minH-screen text-black bg-white dark:bg-black dark:text-white">
       <Container>
-        <EditForm project={project.cart} />
+        {project ? <EditForm project={project.cart} /> : null}
       </Container>
     </div>
   );

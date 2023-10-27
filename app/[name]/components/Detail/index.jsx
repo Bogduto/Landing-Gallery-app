@@ -27,10 +27,10 @@ const Detail = ({
   ]);
   return (
     <Container>
-      <div className="w-full h-full flex flex-row justify-center items-center">
+      <div className="z-10 w-full h-full flex flex-row justify-center items-center">
         <div className="py-[50px]">
           {/* image */}
-          <div className="relative mobile:w-full desktop:w-[650px] mobile:h-[300px] desktop:h-[400px]  mb-[30px]">
+          <div className="z-10 relative mobile:w-full desktop:w-[650px] mobile:h-[300px] desktop:h-[400px]  mb-[30px]">
             <Image src={screenshot} alt="cart image" fill />
           </div>
           {/* name */}
