@@ -5,16 +5,17 @@ import connectMongodb from "@/connects/mongoose"
 export async function GET(req, { params }) {
     try {
         const category = params.category
-
+        await connectMongodb()
         const cart = await cartModel
 
-        const getAllByCategory = await cart.find({
+        const getAll = await cart.find({
+            verified: true,
             categories: {
                 $gte: category
             }
         })
 
-        return NextResponse.json({ msg: "msg", getAllByCategory }, { status: 200 })
+        return NextResponse.json({ msg: "msg", carts: getAll }, { status: 200 })
     } catch (error) {
         throw new Error(error)
     }

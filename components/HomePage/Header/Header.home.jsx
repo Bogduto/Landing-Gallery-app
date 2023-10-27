@@ -24,7 +24,6 @@ const Header = () => {
               of the best landing page design inspiration.
             </div>
             {/* select */}
-            <PopUpWindow buttonName={"pop up"}>datas</PopUpWindow>
             {/* <Select data={categories} /> */}
           </div>
           {/* right side */}
