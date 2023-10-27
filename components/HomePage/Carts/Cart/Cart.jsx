@@ -17,7 +17,7 @@ const Cart = ({ description, name, image, categories }) => {
       </Link>
 
       {/* categories */}
-      {categories.length && (
+      {categories.length ? (
         <div className="flex flex-row gap-[3px]">
           {categories.map((item, key) => (
             <div
@@ -28,7 +28,7 @@ const Cart = ({ description, name, image, categories }) => {
             </div>
           ))}
         </div>
-      )}
+      ) : null}
       {/* simple description */}
       {/* <div>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis

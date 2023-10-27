@@ -8,14 +8,18 @@ import CategoriesCarts from '@/components/Layout/Categories'
 
 
 
-export default async function Home({searchParams}) {
+export default async function Home({ searchParams }) {
   const carts = await getAllProjectsClientByCategory(searchParams?.category)
-
+  console.log(carts)
   return (
     <main className="">
-        <CategoriesCarts />
-        <Header />
-        <Carts data={carts?.carts} />
+      <CategoriesCarts />
+      <Header />
+      {
+        carts && carts.carts ? <Carts data={carts?.carts} /> : <div className='w-full h-[500px] flex flex-row justify-center items-center text-center'>
+          no results
+        </div>
+      }
     </main>
   )
 }

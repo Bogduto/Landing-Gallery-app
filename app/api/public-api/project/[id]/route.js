@@ -4,13 +4,13 @@ import { NextResponse } from "next/server"
 
 export async function GET(req, { params }) {
     try {
-        const id = params.id
+        const name = params.id
 
         await connectMongodb()
 
         const cart = await cartModel
 
-        const findOneCart = await cart.findOne({ _id: id })
+        const findOneCart = await cart.findOne({ name })
         
         return NextResponse.json({
             msg: "get one cart",

@@ -8,20 +8,16 @@ const Carts = ({ data }) => {
   return (
     <div className="w-full h-full">
       <Container>
-        <div className="pb-[50px] w-full h-full flex flex-row flex-wrap items-center gap-[37.55px] justify-between">
-          {data && data.length
-            ? data.map((item, key) => (
-                <Cart
-                  key={key}
-                  description={item.description}
-                  name={item.name}
-                  image={item.screenshot}
-                  categories={item.categories}
-                />
-              ))
-            : Array.from({ length: 9 }).map((item, key) => (
-                <div key={key}>dpsa</div>
-              ))}
+        <div className="pb-[50px] w-full h-full flex flex-row flex-wrap items-start gap-[37.55px] justify-between">
+          {data.map((item, key) => (
+            <Cart
+              key={key}
+              description={item.description}
+              name={item.name}
+              image={item.screenshot}
+              categories={item.categories}
+            />
+          ))}
         </div>
 
         {data && data.length > 10 && (
