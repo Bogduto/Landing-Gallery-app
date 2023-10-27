@@ -16,12 +16,13 @@ export async function POST(req, { params }) {
         }
 
         await connectMongodb()
-
+        
+        
         const cart = await cartModel
         const findAndUpdateCart = await cart.updateOne({ _id: id }, {
             $set: newData,
             $push: {
-                categories: { $each: body.categories }
+                categories: body.categories.map((item, key) => item.text)
             }
         })
 
