@@ -38,7 +38,7 @@ const PopUpWindow = ({ buttonName, onShowState, searchValue, searchChangeValue, 
             ref={ref}
             className="overflow-hidden mobile:w-full mobile:h-full desktop:w-[600px] desktop:h-[550px] desktop:rounded-[15px] desktop:border-[1px] desktop:dark:border-white-hover desktop:border-black p-[20px] dark:bg-black bg-white"
           >
-            <div className="w-full h-[40px]">
+            {searchValue ? <div className="w-full h-[40px]">
               <input
                 className="dark:text-white dark:placeholder:text-white-hover text-black placeholder:textt-black-hover placeholder:capitalize pb-[8px] border-b-[2px] border-white-active w-full"
                 type="text"
@@ -46,7 +46,7 @@ const PopUpWindow = ({ buttonName, onShowState, searchValue, searchChangeValue, 
                 value={searchValue}
                 onChange={(e) => searchChangeValue(e.target.value)}
               />
-            </div>
+            </div> : null}
             <div className="flex flex-col w-full py-[15px] h-full">{children}</div>
           </div>
 
