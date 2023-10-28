@@ -23,7 +23,7 @@ const CreateProject = () => {
       validationSchema={createNewProjectValidator}
       onSubmit={async (values) => {
         setIsLoading(true);
-        await fetch(`/api/public-api/project/createOne/`, {
+        await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/public-api/project/createOne/`, {
           method: "POST",
           body: JSON.stringify(values),
         });
