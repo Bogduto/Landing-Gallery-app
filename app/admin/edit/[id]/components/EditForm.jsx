@@ -36,7 +36,7 @@ const EditForm = ({ project }) => {
         }
         
         await fetch(
-          `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/private-api/project/management/update/${project._id}`,
+          `/api/private-api/project/management/update/${project._id}`,
           {
             method: "POST",
             body: JSON.stringify(detector),
