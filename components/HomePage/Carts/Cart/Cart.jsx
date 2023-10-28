@@ -18,8 +18,8 @@ const Cart = ({ description, name, image, categories }) => {
 
       {/* categories */}
       {categories.length ? (
-        <div className="flex flex-row gap-[3px]">
-          {categories.map((item, key) => (
+        <div className="flex flex-row justify-start items-center gap-[3px]">
+          {categories.slice(0, 3).map((item, key) => (
             <div
               key={key}
               className="mb-[5px] text-black dark:text-white text-[12.8px] font-normal"
@@ -27,6 +27,7 @@ const Cart = ({ description, name, image, categories }) => {
               {item}
             </div>
           ))}
+          ...
         </div>
       ) : null}
       {/* simple description */}

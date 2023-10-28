@@ -2,18 +2,18 @@
 import React, { useState } from "react";
 import { FieldArray } from "formik";
 import { categoriesArray } from "@/constants";
+// components
 import PopUpWindow from "@/components/UI/PopUpWindow";
+
 const Category = ({ categories }) => {
   const [onShow, setOnShow] = useState(false);
   const [added, setAdded] = useState(categories ? categories : []);
-  const [searchValue, setSearchValue] = useState("");
-
-  const handleChangeSearchValue = (text) => {
-    setSearchValue();
-  };
 
   const handleChangeAdded = (value, cb) => {
-    if (!added.find((item) => item.text == value.text)) {
+    if (
+      !added.find((item) => item == value) &&
+      !categories.find((item) => item == value)
+    ) {
       setAdded((prev) => [...prev, value]);
       cb(value);
     }
@@ -21,19 +21,14 @@ const Category = ({ categories }) => {
   };
 
   const handleDeleteFromAdded = (item1, cb) => {
-    cb(added.filter((item2) => item1.text != item2.text));
-    return setAdded((prev) => prev.filter((item2) => item1.text != item2.text));
+    cb(added.filter((item2) => item1 != item2));
+    return setAdded((prev) => prev.filter((item2) => item1 != item2));
   };
 
-  const handleSelected = (item1) => {
-    return added.find((item2) => item1.text == item2.text);
+  const handleSelected = (value) => {
+    return added.includes(value);
   };
 
-  const handleSearchCategory = (text) => {
-    return;
-  };
-
-  console.log("added", added);
   return (
     <div>
       <div className="flex mobile:flex-col desktop:flex-row gap-[10px]">
@@ -54,13 +49,13 @@ const Category = ({ categories }) => {
               {categoriesArray.map((category, index) => (
                 <div
                   className={`w-full px-[20px] py-[12px] flex flex-row cursor-pointer ${
-                    handleSelected(category) && "bg-black-hover"
+                    handleSelected(category.text) && "bg-black-hover"
                   } hover:bg-black-hover active:bg-black-active`}
                   key={index}
                   onClick={() =>
-                    handleSelected(category)
-                      ? handleDeleteFromAdded(category, remove)
-                      : handleChangeAdded(category, push)
+                    handleSelected(category.text)
+                      ? handleDeleteFromAdded(category.text, remove)
+                      : handleChangeAdded(category.text, push)
                   }
                 >
                   <div>{category.icon}</div> {category.text}

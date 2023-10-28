@@ -42,22 +42,26 @@ const Detail = ({
             {description}
           </div>
           {/* the details */}
-          <div className="flex flex-col gap-[10px] mt-[15px]">
+          <div className="w-full flex flex-col gap-[10px] mt-[15px]">
             <div className="capitalize text-black dark:text-white text-[15px] font-bold">
               the details
             </div>
             <div>
               <div className="text-black dark:text-white">
-                url: <Link className="duration-300 cursor-pointer dark:text-white hover:dark:text-white-hover text-black hover:text-black-hover" href={websiteUrl}>{websiteUrl}</Link>
+                url:{" "}
+                <Link
+                  className="duration-300 cursor-pointer dark:text-white hover:dark:text-white-hover text-black hover:text-black-hover"
+                  href={websiteUrl}
+                >
+                  {websiteUrl}
+                </Link>
               </div>
               <div className="text-black dark:text-white">email: {email}</div>
               {categories.length ? (
                 <div className="flex flex-row gap-[5px]">
                   <div>topic: </div>
-                  <div className="flex flex-row items-center gap-[10px] flex-wrap">
-                    {categories.map((item, key) => (
-                      <div key={key}>{item}</div>
-                    ))}
+                  <div className="w-full flex flex-row items-center gap-[10px] break-all">
+                    {categories.join(", ")}
                   </div>
                 </div>
               ) : null}

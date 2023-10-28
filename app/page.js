@@ -16,7 +16,7 @@ export default async function Home({ searchParams }) {
       <CategoriesCarts />
       <Header />
       {
-        carts && carts.carts ? <Carts data={carts?.carts} /> : <div className='w-full h-[500px] flex flex-row justify-center items-center text-center'>
+        carts && carts.carts.length ? <Carts data={carts?.carts} /> : <div className='w-full h-[500px] flex flex-row justify-center items-center text-center'>
           no results
         </div>
       }

@@ -15,7 +15,6 @@ const EditForm = ({ project }) => {
     name: project.name,
   });
 
-  console.log(values)
 
   const [onLoading, setOnLoading] = useState(false);
 
@@ -24,7 +23,6 @@ const EditForm = ({ project }) => {
       initialValues={values}
       onSubmit={async (values) => {
         await setOnLoading(true);
-        console.log("submit", values);
         const detector = await arrayChangeDetector(values, {
           categories: project.categories,
           description: project.description,
@@ -36,7 +34,7 @@ const EditForm = ({ project }) => {
           setOnLoading(false);
           return;
         }
-
+        
         await fetch(
           `http://localhost:3000/api/private-api/project/management/update/${project._id}`,
           {
