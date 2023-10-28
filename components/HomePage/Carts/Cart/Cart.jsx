@@ -2,6 +2,7 @@
 import React from "react";
 import Link from "next/link";
 const Cart = ({ description, name, image, categories }) => {
+  const slideLength = 3;
   return (
     <div className="w-[347.94px] text-white rounded-[25px]">
       {/* image */}
@@ -16,18 +17,31 @@ const Cart = ({ description, name, image, categories }) => {
         </div>
       </Link>
 
+      <div className="text-[13px] pt-[5px] pb-[12px] font-light">
+        {description.slice(0, 80)}...
+      </div>
+
       {/* categories */}
       {categories.length ? (
         <div className="mb-[5px] flex flex-row justify-start flex-wrap items-start gap-[3px]">
-          {categories.slice(0, 3).map((item, key) => (
+          {categories.slice(0, slideLength).map((item, key) => (
             <div
               key={key}
-              className="text-black dark:text-white text-[12px] font-normal"
+              className="text-black dark:text-white text-[12px] font-medium"
             >
-              {item},
+              "{item}"{" "}
+              {categories.length < slideLength
+                ? key < categories.length - 1
+                  ? ","
+                  : null
+                : key < slideLength - 1 && ","}
             </div>
           ))}
-          {categories.length > 3 ? <div className="text-black dark:text-white text-[12px] tracking-[1px] font-normal">...</div> : null}
+          {categories.length > 3 ? (
+            <div className="text-black dark:text-white text-[12px] tracking-[1px] font-normal">
+              ...
+            </div>
+          ) : null}
         </div>
       ) : null}
       {/* simple description */}
