@@ -8,7 +8,7 @@ const AdminDashboard = async () => {
     const data = await getAllProjectsAdmin();
     return (
         <div className="py-[40px] w-full minH-screen bg-white dark:bg-black">
-            {data && <Carts data={data?.carts} />}
+            {data ? <Carts data={data?.carts} /> : null}
         </div>
     );
 }
