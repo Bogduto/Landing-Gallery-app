@@ -91,9 +91,10 @@ const Burger = () => {
                 <div className="mb-[21.25px] uppercase dark:text-white dark:text-white text-black text-[12.8px] leading-[17px] tracking-[1.27px]">
                   categories
                 </div>
-                <div className="flex flex-col gap-[17px]">
+                <div className="flex mobile:flex-col tablet:flex-row tablet:flex-wrap tablet:justify-between gap-[17px]">
                   {categoriesArray.map((item, key) => (
                     <Link
+                    className="tablet:w-[300px]"
                       key={key}
                       href={{
                         query: {

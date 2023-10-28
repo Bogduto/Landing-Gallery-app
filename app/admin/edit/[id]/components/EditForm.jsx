@@ -46,7 +46,7 @@ const EditForm = ({ project }) => {
         return;
       }}
     >
-      <Form className="relative flex flex-col gap-[25px] mt-[24px] mobile:w-full desktop:w-[500px]">
+      <Form className="relative flex flex-col gap-[25px] mt-[24px] mobile:w-full tablet:w-[500px]">
         <FormFieldCart name="name" placeholder={"project name"} />
         <FormFieldCart name="websiteUrl" placeholder={"website url"} />
         <FormFieldCart

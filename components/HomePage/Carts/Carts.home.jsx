@@ -8,7 +8,7 @@ const Carts = ({ data }) => {
   return (
     <div className="w-full h-full">
       <Container>
-        <div className="pb-[50px] w-full h-full flex flex-row flex-wrap items-start gap-[37.55px] justify-between">
+        <div className="pb-[50px] w-full h-full flex flex-row flex-wrap items-start mobile:gap-[27px] tablet:gap-[32px] desktop:gap-[37.55px] justify-between">
           {data.map((item, key) => (
             <Cart
               key={key}

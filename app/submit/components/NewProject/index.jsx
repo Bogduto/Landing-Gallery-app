@@ -11,11 +11,11 @@ const NewProject = () => {
         {/* text field */}
         <div>
           {/* title */}
-          <div className="mobile:text-[20.5px] desktop:text-[76.5px] dark:text-white text-black font-bold desktop:leading-[95.63px] mobile:w-full desktop:w-[600px]">
+          <div className="mobile:text-[20.5px] desktop:text-[76.5px] dark:text-white text-black font-bold desktop:leading-[95.63px] mobile:text-center laptop:text-start mobile:w-full  laptop:w-[600px]">
             Submit a new startup
           </div>
           {/* subtitle */}
-          <div className="desktop:text-[21.3px] mobile:text-[14px] dark:text-white text-[#334155] font-normal desktop:leading-[29.75px]">
+          <div className="desktop:text-[21.3px] mobile:text-[14px] dark:text-white text-[#334155] font-normal mobile:text-center laptop:text-start desktop:leading-[29.75px]">
             Share your startup with the community and get featured
           </div>
         </div>

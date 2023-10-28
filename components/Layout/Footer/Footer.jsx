@@ -39,7 +39,7 @@ const Footer = () => {
                 categories
               </div>
 
-              <div className="flex mobile:flex-col desktop:flex-row mobile:gap-[10px] desktop:gap-[30px] items-start">
+              <div className="flex mobile:flex-col tablet:flex-row mobile:gap-[10px] tablet:gap-[30px] items-start">
                 <div className="flex flex-col items-start gap-[8.8px]">
                   {categoriesArray
                     .slice(0, categoriesArray.length / 2)

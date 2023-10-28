@@ -26,12 +26,14 @@ const Navbar = () => {
             </div>
           </Link>
 
+          {/* 1024 px burger is hide */}
+
           {/* burger */}
-          <div className="desktop:hidden mobile:block">
+          <div className="desktop:hidden laptop:hidden mobile:block">
             <Burger />
           </div>
           {/* clasic */}
-          <div className="h-full mobile:hidden desktop:flex flex-row gap-[20px] items-center">
+          <div className="h-full mobile:hidden laptop:flex flex-row gap-[20px] items-center">
             {/* search */}
             <Search />
             {/* links */}
