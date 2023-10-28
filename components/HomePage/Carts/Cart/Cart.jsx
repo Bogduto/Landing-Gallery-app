@@ -25,7 +25,7 @@ const Cart = ({ description, name, image, categories }) => {
               key={key}
               className="text-black dark:text-white text-[12px] font-medium"
             >
-              "{item}"{" "}
+              &quot;{item}&quot;{" "}
               {categories.length < slideLength
                 ? key < categories.length - 1
                   ? ","
