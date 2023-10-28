@@ -65,9 +65,9 @@ const Burger = () => {
             />
             <path
               d="M3.64941 16.1608H17.8161"
-              stroke-width="1.77083"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.77083"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         )}

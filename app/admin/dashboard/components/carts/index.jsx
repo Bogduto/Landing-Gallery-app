@@ -24,7 +24,7 @@ const Carts = ({ data }) => {
             ))}
           </div>
         ) : (
-          <div className="h-[500px] pt-[50px]">Заявок нету</div>
+          <div className="h-[500px] pt-[50px]">No bids.</div>
         )}
       </Container>
     </div>

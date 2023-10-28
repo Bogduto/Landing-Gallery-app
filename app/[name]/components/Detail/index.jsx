@@ -13,18 +13,6 @@ const Detail = ({
   screenshot,
   websiteUrl,
 }) => {
-  const [cate, setCate] = useState([
-    "Rock",
-    "Pop",
-    "Hip-Hop",
-    "Jazz",
-    "Country",
-    "Electronic",
-    "Classical",
-    "Reggae",
-    "R&B",
-    "Blues",
-  ]);
   return (
     <Container>
       <div className="z-10 w-full h-full flex flex-col justify-center items-center">
@@ -67,11 +55,11 @@ const Detail = ({
                 </div>
               </div>
               {categories.length ? (
-                <div className="flex flex-row flex-wrap justify-start items-end gap-[3px] w-full">
+                <div className="flex flex-row flex-wrap items-center gap-[3px] w-full">
                   <div className="dark:text-white text-[17px] font-bold leading-[19.5px] capitalize">
                     categories:{" "}
                   </div>
-                  <div className="flex flex-row gap-[5px] items-start">
+                  <div className="flex flex-row gap-[5px]">
                     {categories.map((item, key) => (
                       <div
                         key={key}

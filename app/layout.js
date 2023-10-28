@@ -2,10 +2,10 @@ import './globals.css'
 import Navbar from '@/components/Layout/Navbar/Navbar'
 import Footer from '@/components/Layout/Footer/Footer'
 import Template from './template'
-import { Unbounded } from 'next/font/google'
+import { Unbounded, Roboto } from 'next/font/google'
 
-const unbounded = Unbounded({
-  weight: ['400', "300", "700", "600", "500"],
+const roboto = Roboto({
+  weight: ['400', "300", "700", "500"],
   subsets: ['latin', "cyrillic"],
 })
 
@@ -17,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html suppressHydrationWarning lang="en">
-      <body className={`${unbounded.className} w-full h-full bg-white dark:bg-black`}>
+      <body className={`${roboto.className} w-full h-full bg-white dark:bg-black`}>
         <Template>
           <div className='w-full h-full flex flex-col justify-between'>
             <Navbar />
