@@ -1,4 +1,4 @@
-const url = process.env.NEXT_PUBLIC_VERCEL_URL ? `https://landing-gallery-8y3vzpece-bogduto.vercel.app/api` : 'http://localhost:3000/api'
+const url = process.env.NEXT_PUBLIC_VERCEL_URL ? `https://landing-gallery-app.vercel.app/api` : 'http://localhost:3000/api'
 
 export const searchProjectByName = async (name) => {
     try {
