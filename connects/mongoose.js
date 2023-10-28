@@ -3,6 +3,9 @@ const url = process.env.MONGODB_URI
 const connectMongodb = () => {
     mongoose.connect(url, {
         dbName: 'work',
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true
     }).then(() => {
         console.log("Connected to Database");
     }).catch((err) => {
