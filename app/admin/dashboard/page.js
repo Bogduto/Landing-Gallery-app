@@ -9,7 +9,7 @@ const AdminDashboard = async () => {
     console.log(data)
     return (
         <div className="py-[40px] w-full minH-screen bg-white dark:bg-black">
-            <Carts data={data?.carts} />
+            {data && <Carts data={data?.carts} />}
         </div>
     );
 }
