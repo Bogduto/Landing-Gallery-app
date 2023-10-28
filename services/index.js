@@ -6,7 +6,7 @@ export const searchProjectByName = async (name) => {
         const resultsJson = await results.json()
         return resultsJson
     } catch (error) {
-        console.error(error)
+        console.log(error)
     }
 }
 
@@ -22,7 +22,7 @@ export const createOneProject = async (values) => {
         return createOneJson
 
     } catch (error) {
-        console.error(error)
+        console.log(error)
     }
 }
 
@@ -39,7 +39,7 @@ export const getAllProjectsClientByCategory = async (category) => {
 
         return cartsJson
     } catch (error) {
-        console.error(error)
+        console.log(error)
     }
 }
 
@@ -54,7 +54,7 @@ export const getAllProjectsClient = async () => {
 
         return cartsJson
     } catch (error) {
-        console.error(error)
+        console.log(error)
     }
 }
 export const getAllProjectsAdmin = async () => {
@@ -68,7 +68,7 @@ export const getAllProjectsAdmin = async () => {
 
         return cartsJson
     } catch (error) {
-        console.error(error)
+        console.log(error)
     }
 }
 
@@ -83,7 +83,7 @@ export const getOneProjectById = async (id) => {
 
         return oneCartJson
     } catch (error) {
-        console.error(error)
+        console.log(error)
     }
 }
 
@@ -98,7 +98,7 @@ export const getOneProject = async (name) => {
 
         return oneCartJson
     } catch (error) {
-        console.error(error)
+        console.log(error)
     }
 }
 
@@ -113,7 +113,7 @@ export const deleteOneProject = async (id) => {
 
         return deleteCartJson
     } catch (error) {
-        console.error(error)
+        console.log(error)
     }
 }
 export const updateOneProject = async (data) => {
@@ -127,7 +127,7 @@ export const updateOneProject = async (data) => {
 
         return updateCartJson
     } catch (error) {
-        console.error(error)
+        console.log(error)
     }
 }
 export const acceptOneProject = async (id) => {
@@ -140,6 +140,6 @@ export const acceptOneProject = async (id) => {
 
         return acceptCartJson
     } catch (error) {
-        console.error(error)
+        console.log(error)
     }
 }
