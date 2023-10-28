@@ -9,6 +9,7 @@ import SubmitButton from "@/components/UI/Buttons/SubmitButton";
 import FormFieldCart from "../../../../components/UI/Form/FormField";
 
 const CreateProject = () => {
+
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   return (
@@ -22,7 +23,7 @@ const CreateProject = () => {
       validationSchema={createNewProjectValidator}
       onSubmit={async (values) => {
         setIsLoading(true);
-        await fetch(`${process.env.VERCEL_URL}/api/public-api/project/createOne/`, {
+        await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/public-api/project/createOne/`, {
           method: "POST",
           body: JSON.stringify(values),
         });
