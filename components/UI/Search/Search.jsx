@@ -9,7 +9,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const Search = () => {
   const [value, setValue] = useState("");
-  
+
   const handleClicked = () => {
     setValue("");
   };
@@ -28,6 +28,7 @@ const Search = () => {
       <div className="h-full flex flex-row items-center gap-[8px]">
         <div className="w-[20px] h-[20px]">
           <PopUpWindow
+            hasSearch={true}
             searchChangeValue={handleChangeValue}
             searchValue={value}
             buttonName={

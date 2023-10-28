@@ -11,23 +11,23 @@ const Cart = ({ description, name, image, categories }) => {
       {/* name */}
 
       <Link href={`/${name}`}>
-        <div className="mb-[5px] text-[20px] font-normal text-black dark:text-[#C8C8C8] tracking-[0.32px] leading-[17px] capitalize">
+        <div className="mb-[5px] text-[20px] font-normal text-black hover:text-black-hover dark:text-[#C8C8C8] dark:hover:text-[#a8a5a5] duration-300 tracking-[0.32px] leading-[17px] capitalize">
           {name}
         </div>
       </Link>
 
       {/* categories */}
       {categories.length ? (
-        <div className="flex flex-row justify-start items-center gap-[3px]">
+        <div className="mb-[5px] flex flex-row justify-start flex-wrap items-start gap-[3px]">
           {categories.slice(0, 3).map((item, key) => (
             <div
               key={key}
-              className="mb-[5px] text-black dark:text-white text-[12.8px] font-normal"
+              className="text-black dark:text-white text-[12px] font-normal"
             >
-              {item}
+              {item},
             </div>
           ))}
-          ...
+          {categories.length > 3 ? <div className="text-black dark:text-white text-[12px] tracking-[1px] font-normal">...</div> : null}
         </div>
       ) : null}
       {/* simple description */}
