@@ -2,7 +2,7 @@ const url = `${process.env.NEXT_PUBLIC_VERCEL_URL}/api`
 
 export const searchProjectByName = async (name) => {
     try {
-        const results = await fetch(`/api/public-api/project/search/${name}/`)
+        const results = await fetch(`${url}/public-api/project/search/${name}/`)
         const resultsJson = await results.json()
         return resultsJson
     } catch (error) {
@@ -12,7 +12,7 @@ export const searchProjectByName = async (name) => {
 
 export const createOneProject = async (values) => {
     try {
-        const createOne = await fetch(`/api/public-api/project/createOne/`, {
+        const createOne = await fetch(`${url}/public-api/project/createOne/`, {
             method: "POST",
             body: JSON.stringify(values),
         });
@@ -28,7 +28,7 @@ export const createOneProject = async (values) => {
 
 export const getAllProjectsClientByCategory = async (category) => {
     try {
-        const path = category ? `/api/public-api/project/getAllByCategory/${category}/` : `api/public-api/project/getAll/`
+        const path = category ? `${url}/public-api/project/getAllByCategory/${category}/` : `${url}/public-api/project/getAll`
         
         const carts = await fetch(path, {
             method: "GET",
@@ -45,7 +45,7 @@ export const getAllProjectsClientByCategory = async (category) => {
 
 export const getAllProjectsClient = async () => {
     try {
-        const carts = await fetch(`/api/public-api/project/getAll/`, {
+        const carts = await fetch(`${url}/public-api/project/getAll`, {
             method: "GET",
             cache: "no-cache",
         })
@@ -59,7 +59,7 @@ export const getAllProjectsClient = async () => {
 }
 export const getAllProjectsAdmin = async () => {
     try {
-        const carts = await fetch(`/api/private-api/project/getAll/`, {
+        const carts = await fetch(`${url}/private-api/project/getAll/`, {
             method: "GET",
             cache: "no-cache"
         })
@@ -74,7 +74,7 @@ export const getAllProjectsAdmin = async () => {
 
 export const getOneProjectById = async (id) => {
     try {
-        const oneCart = await fetch(`/api/private-api/project/${id}/`, {
+        const oneCart = await fetch(`${url}/private-api/project/${id}/`, {
             method: "GET",
             cache: "no-store"
         })
@@ -89,7 +89,7 @@ export const getOneProjectById = async (id) => {
 
 export const getOneProject = async (name) => {
     try {
-        const oneCart = await fetch(`/api/public-api/project/${name}/`, {
+        const oneCart = await fetch(`${url}/public-api/project/${name}/`, {
             method: "GET",
             cache: "no-store"
         })
@@ -104,7 +104,7 @@ export const getOneProject = async (name) => {
 
 export const deleteOneProject = async (id) => {
     try {
-        const deleteCart = await fetch(`/api/private-api/project/management/remove/${id}/`,
+        const deleteCart = await fetch(`${url}/private-api/project/management/remove/${id}/`,
             {
                 method: "DELETE"
             })
@@ -118,7 +118,7 @@ export const deleteOneProject = async (id) => {
 }
 export const updateOneProject = async (data) => {
     try {
-        const updateCart = await fetch(`/api/private-api/project/management/update/${id}/`, {
+        const updateCart = await fetch(`${url}/private-api/project/management/update/${id}/`, {
             method: "POST",
             body: JSON.stringify(data)
         })
