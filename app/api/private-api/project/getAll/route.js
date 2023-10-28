@@ -9,7 +9,7 @@ export async function GET(req, res) {
 
         const cart = await cartModel
 
-        const findAllCarts = await cart.find({})
+        const findAllCarts = await cart.find({ verified: false })
 
         return NextResponse.json({
             msg: "get all carts",
