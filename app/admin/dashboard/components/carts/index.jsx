@@ -1,7 +1,8 @@
 "use client";
 import Container from "@/components/Layout/Container/Container";
 import React from "react";
-import AdminCart from "../Cart";
+import AdminCart from "../cart";
+
 
 const Carts = ({ data }) => {
   return (
