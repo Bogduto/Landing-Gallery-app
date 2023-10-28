@@ -28,7 +28,7 @@ export const createOneProject = async (values) => {
 
 export const getAllProjectsClientByCategory = async (category) => {
     try {
-        const path = category ? `${url}/public-api/project/getAllByCategory/${category}/` : `${url}/public-api/project/getAll`
+        const path = category ? `${url}/public-api/project/getAllByCategory/${category}/` : `${url}/public-api/project/getAll/`
         
         const carts = await fetch(path, {
             method: "GET",
@@ -45,7 +45,7 @@ export const getAllProjectsClientByCategory = async (category) => {
 
 export const getAllProjectsClient = async () => {
     try {
-        const carts = await fetch(`${url}/public-api/project/getAll`, {
+        const carts = await fetch(`${url}/public-api/project/getAll/`, {
             method: "GET",
             cache: "no-cache",
         })
