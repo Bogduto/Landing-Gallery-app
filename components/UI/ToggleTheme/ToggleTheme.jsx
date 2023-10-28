@@ -19,7 +19,7 @@ const ToggleTheme = () => {
   return (
     <button
       onClick={toggleTheme}
-      className={`dark:text-white dark:hover:text-white-hover hover:text-black-hover text-black px-[10px] border-l-[1px] dark:border-white border-black capitalize cursor-pointer uppercase font-normal text-[12.8px] tracking-[1.27px] leading-[17px] duration-300`}
+      className={`dark:text-white dark:hover:text-white-hover hover:text-black-hover text-black capitalize cursor-pointer uppercase font-normal text-[12.8px] tracking-[1.27px] leading-[17px] duration-300`}
     >
       {currentTheme === "dark" ? "Dark" : "Light"}
     </button>

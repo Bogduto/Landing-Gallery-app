@@ -26,9 +26,9 @@ const CategoriesCarts = () => {
     setIndex(5);
   };
   return (
-    <div className="desktop:block mobile:hidden w-full mt-[20px]">
+    <div className="desktop:block mobile:hidden w-full mb-[40px]">
       <Container>
-        <div className="flex flex-row flex-wrap gap-y-[10px] items-center">
+        <div className="flex flex-row flex-wrap justify-center gap-y-[10px] items-center">
           {categoriesArray.slice(0, index).map((item, key) => (
             <Link
               key={key}

@@ -7,7 +7,7 @@ const Cart = ({ description, name, image, categories }) => {
     <div className="w-[347.94px] text-white rounded-[25px]">
       {/* image */}
       <div className="rounded-[25px]  w-full mb-[10px]">
-        <img src={`/uploads/${image}`} alt="cart image" />
+        <img src={`/uploads/${image}`} className="rounded-[15px]" alt="cart image" />
       </div>
       {/* name */}
 
@@ -17,13 +17,9 @@ const Cart = ({ description, name, image, categories }) => {
         </div>
       </Link>
 
-      <div className="text-[13px] pt-[5px] pb-[12px] font-light">
-        {description.slice(0, 80)}...
-      </div>
-
       {/* categories */}
       {categories.length ? (
-        <div className="mb-[5px] flex flex-row justify-start flex-wrap items-start gap-[3px]">
+        <div className="pt-[5px] pb-[8px] flex flex-row justify-start flex-wrap items-start gap-[3px]">
           {categories.slice(0, slideLength).map((item, key) => (
             <div
               key={key}
@@ -44,12 +40,10 @@ const Cart = ({ description, name, image, categories }) => {
           ) : null}
         </div>
       ) : null}
-      {/* simple description */}
-      {/* <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
-        iste sint magni, ipsum labore fugit quaerat deserunt earum temporibus
-        at. Fuga, obcaecati ratione.
-      </div> */}
+
+      <div className="mb-[5px] text-[13px] font-light">
+        {description.slice(0, 80)}...
+      </div>
     </div>
   );
 };

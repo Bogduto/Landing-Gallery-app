@@ -9,7 +9,7 @@ import dynamic from "next/dynamic";
 
 const ToggleTheme = dynamic(
   () => import("@/components/UI/ToggleTheme/ToggleTheme"),
-  {ssr: false}
+  { ssr: false }
 );
 const Navbar = () => {
   return (
@@ -31,7 +31,7 @@ const Navbar = () => {
             <Burger />
           </div>
           {/* clasic */}
-          <div className="h-full mobile:hidden desktop:flex flex-row gap-[20px]">
+          <div className="h-full mobile:hidden desktop:flex flex-row gap-[20px] items-center">
             {/* search */}
             <Search />
             {/* links */}
@@ -42,7 +42,7 @@ const Navbar = () => {
                 </li>
               </Link>
             </ul>
-            <div className="w-[50px] flex flex-row items-center">
+            <div className="border-l-[1px] px-[10px]  dark:border-white border-black w-[50px] h-[20px] flex flex-row items-center">
               <ToggleTheme />
             </div>
           </div>
