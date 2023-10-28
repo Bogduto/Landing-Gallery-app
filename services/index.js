@@ -1,4 +1,4 @@
-const url = `${process.env.DOMAIN}/api`
+const url = `${process.env.NEXT_PUBLIC_VERCEL_URL}/api`
 
 export const searchProjectByName = async (name) => {
     try {
