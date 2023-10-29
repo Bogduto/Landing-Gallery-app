@@ -41,7 +41,7 @@ const Cart = ({ description, name, image, categories }) => {
         </div>
       ) : null}
 
-      <div className="mb-[5px] text-[13px] font-light">
+      <div className="mb-[5px] dark:text-white text-black text-[13px] font-light">
         {description.slice(0, 80)}...
       </div>
     </div>

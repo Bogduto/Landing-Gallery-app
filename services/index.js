@@ -31,8 +31,7 @@ export const getAllProjectsClientByCategory = async (category) => {
         const path = category ? `${url}/public-api/project/getAllByCategory/${category}/` : `${url}/public-api/project/getAll`
 
         const carts = await fetch(path, {
-            method: "GET",
-            next: { revalidate: 0 }
+            method: "GET"
         })
 
         const cartsJson = await carts.json()
@@ -47,7 +46,6 @@ export const getAllProjectsClient = async () => {
     try {
         const carts = await fetch(`${url}/public-api/project/getAll`, {
             method: "GET",
-            next: { revalidate: 0 }
         })
 
         const cartsJson = await carts.json()
@@ -61,7 +59,6 @@ export const getAllProjectsAdmin = async () => {
     try {
         const carts = await fetch(`${url}/private-api/project/getAll`, {
             method: "GET",
-            next: { revalidate: 0 }
         })
 
         const cartsJson = await carts.json()
@@ -76,7 +73,6 @@ export const getOneProjectById = async (id) => {
     try {
         const oneCart = await fetch(`${url}/private-api/project/${id}/`, {
             method: "GET",
-            next: { revalidate: 0 }
         })
 
         const oneCartJson = await oneCart.json()
@@ -91,7 +87,6 @@ export const getOneProject = async (name) => {
     try {
         const oneCart = await fetch(`${url}/public-api/project/${name}/`, {
             method: "GET",
-            next: { revalidate: 0 }
         })
 
         const oneCartJson = await oneCart.json()
@@ -121,7 +116,6 @@ export const updateOneProject = async (data) => {
         const updateCart = await fetch(`${url}/private-api/project/management/update/${id}/`, {
             method: "POST",
             body: JSON.stringify(data),
-            next: { revalidate: 0 }
         })
 
         const updateCartJson = await updateCart.json()
