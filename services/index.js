@@ -50,6 +50,7 @@ export const getAllProjectsAdmin = async () => {
     try {
         const carts = await fetch(`${url}/private-api/project/getAll`, {
             method: "GET",
+            cache: "no-cache"
         })
 
         const cartsJson = await carts.json()
