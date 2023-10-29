@@ -61,21 +61,7 @@ export const getAllProjectsClient = async () => {
         console.log(error)
     }
 }
-export const getAllProjectsAdmin = async () => {
-    try {
-        const carts = await fetch(`${url}/private-api/project/getAll`, {
-            method: "GET",
-            cache: "no-cache"
 
-        })
-
-        const cartsJson = await carts.json()
-
-        return cartsJson
-    } catch (error) {
-        console.log(error)
-    }
-}
 
 export const getOneProjectById = async (id) => {
     try {

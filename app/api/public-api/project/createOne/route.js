@@ -47,8 +47,6 @@ export async function POST(req, res) {
         const cart = await cartModel
         const newCart = await cart.create(body)
 
-        // ... remove image if cart is not created
-
         return NextResponse.json({
             msg: "created new cart",
             body
