@@ -4,8 +4,6 @@ import React from 'react'
 // components
 import Carts from './components/carts'
 
-export const dynamic = 'force-dynamic'
-
 export const revalidate = 0
 
 const url = process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api` : 'http://localhost:3000/api'
