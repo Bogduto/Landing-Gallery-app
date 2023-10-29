@@ -40,6 +40,7 @@ const EditForm = ({ project }) => {
             method: "POST",
             body: JSON.stringify(detector),
             mode: "no-cors",
+            cache: "no-cache"
           }
         );
         await setOnLoading(false);

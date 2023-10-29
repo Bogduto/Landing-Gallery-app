@@ -15,6 +15,8 @@ export const createOneProject = async (values) => {
         const createOne = await fetch(`${url}/public-api/project/createOne`, {
             method: "POST",
             body: JSON.stringify(values),
+            cache: "no-cache"
+
         });
 
         const createOneJson = await createOne.json()
@@ -31,7 +33,9 @@ export const getAllProjectsClientByCategory = async (category) => {
         const path = category ? `${url}/public-api/project/getAllByCategory/${category}/` : `${url}/public-api/project/getAll`
 
         const carts = await fetch(path, {
-            method: "GET"
+            method: "GET",
+            cache: "no-cache"
+
         })
 
         const cartsJson = await carts.json()
@@ -46,6 +50,8 @@ export const getAllProjectsClient = async () => {
     try {
         const carts = await fetch(`${url}/public-api/project/getAll`, {
             method: "GET",
+            cache: "no-cache"
+
         })
 
         const cartsJson = await carts.json()
@@ -59,6 +65,8 @@ export const getAllProjectsAdmin = async () => {
     try {
         const carts = await fetch(`${url}/private-api/project/getAll`, {
             method: "GET",
+            cache: "no-cache"
+
         })
 
         const cartsJson = await carts.json()
@@ -73,6 +81,8 @@ export const getOneProjectById = async (id) => {
     try {
         const oneCart = await fetch(`${url}/private-api/project/${id}/`, {
             method: "GET",
+            cache: "no-cache"
+
         })
 
         const oneCartJson = await oneCart.json()
@@ -87,6 +97,8 @@ export const getOneProject = async (name) => {
     try {
         const oneCart = await fetch(`${url}/public-api/project/${name}/`, {
             method: "GET",
+            cache: "no-cache"
+
         })
 
         const oneCartJson = await oneCart.json()
