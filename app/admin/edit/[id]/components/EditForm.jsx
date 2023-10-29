@@ -6,6 +6,7 @@ import SubmitButton from "@/components/UI/Buttons/SubmitButton";
 import FormFieldCart from "@/components/UI/Form/FormField";
 import Category from "./Category";
 import arrayChangeDetector from "@/utils/arrayChangeDetector";
+import { useRouter } from "next/navigation";
 
 const EditForm = ({ project }) => {
   const [values, setValues] = useState({
@@ -16,7 +17,7 @@ const EditForm = ({ project }) => {
   });
 
   const [onLoading, setOnLoading] = useState(false);
-  
+  const router = useRouter();
   return (
     <Formik
       initialValues={values}
@@ -40,11 +41,11 @@ const EditForm = ({ project }) => {
             method: "POST",
             body: JSON.stringify(detector),
             mode: "no-cors",
-            cache: "no-cache"
+            cache: "no-cache",
           }
         );
         await setOnLoading(false);
-        return;
+        return router.refresh();
       }}
     >
       <Form className="relative flex flex-col gap-[25px] mt-[24px] mobile:w-full tablet:w-[500px]">
