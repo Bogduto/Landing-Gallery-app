@@ -2,13 +2,10 @@ import connectMongodb from "@/connects/mongoose"
 import cartModel from "@/schemas/CartModel"
 import { NextResponse } from "next/server"
 
-
 import fs from 'fs'
 import path from 'path'
 import { uid } from 'uid'
 import puppeteer from 'puppeteer'
-
-
 
 const MakeScrenshot = async (url) => {
     try {

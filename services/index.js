@@ -46,6 +46,21 @@ export const getAllProjectsClientByCategory = async (category) => {
     }
 }
 
+export const getAllProjectsAdmin = async () => {
+    try {
+        const carts = await fetch(`${url}/private-api/project/getAll`, {
+            method: "GET",
+        })
+
+        const cartsJson = await carts.json()
+
+        return cartsJson
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
 export const getAllProjectsClient = async () => {
     try {
         const carts = await fetch(`${url}/public-api/project/getAll`, {

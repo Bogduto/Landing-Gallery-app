@@ -2,6 +2,8 @@ import { NextResponse } from "next/server"
 import cartModel from "@/schemas/CartModel"
 import connectMongodb from "@/connects/mongoose"
 
+export const revalidate = true
+
 export async function GET(req, { params }) {
     try {
         const category = params.category
