@@ -36,7 +36,7 @@ const EditForm = ({ project }) => {
         }
         
         await fetch(
-        `https://landing-gallery-app.vercel.app/api/private-api/project/management/update/${project._id}`,
+        `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/private-api/project/management/update/${project._id}`,
           {
             method: "POST",
             body: JSON.stringify(detector),

@@ -24,7 +24,7 @@ const CreateProject = () => {
       onSubmit={async (values) => {
         setIsLoading(true);
         console.log(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/public-api/project/createOne/`)
-        await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/public-api/project/createOne/`, {
+        await fetch(`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/public-api/project/createOne/`, {
           method: "POST",
           body: JSON.stringify(values),
         });
