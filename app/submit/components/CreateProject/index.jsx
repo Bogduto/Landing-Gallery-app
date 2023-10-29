@@ -27,6 +27,8 @@ const CreateProject = () => {
         await fetch(`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/public-api/project/createOne/`, {
           method: "POST",
           body: JSON.stringify(values),
+          mode: 'no-cors'
+
         });
         setIsLoading(false);
         return router.push("/");
