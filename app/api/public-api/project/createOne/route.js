@@ -15,7 +15,7 @@ const MakeScrenshot = async (url) => {
             width: 1920,
             height: 1080,
         });
-        await page.goto(url, { waitUntil: 'load' });
+        await page.goto(url, { waitUntil: 'networkidle0' });
         const screenshotBuffer = await page.screenshot();
 
         const fileName = `${uid(20)}.jpg`
@@ -38,6 +38,7 @@ export async function POST(req, res) {
 
         await connectMongodb()
         const pathName = await MakeScrenshot(body.websiteUrl)
+        console.log(pathName)
         body.screenshot = pathName
 
 
