@@ -29,10 +29,10 @@ export const createOneProject = async (values) => {
 export const getAllProjectsClientByCategory = async (category) => {
     try {
         const path = category ? `${url}/public-api/project/getAllByCategory/${category}/` : `${url}/public-api/project/getAll`
-        
+
         const carts = await fetch(path, {
             method: "GET",
-            cache: "no-cache"
+            next: { revalidate: 0 }
         })
 
         const cartsJson = await carts.json()
@@ -47,7 +47,7 @@ export const getAllProjectsClient = async () => {
     try {
         const carts = await fetch(`${url}/public-api/project/getAll`, {
             method: "GET",
-            cache: "no-cache",
+            next: { revalidate: 0 }
         })
 
         const cartsJson = await carts.json()
@@ -61,7 +61,7 @@ export const getAllProjectsAdmin = async () => {
     try {
         const carts = await fetch(`${url}/private-api/project/getAll`, {
             method: "GET",
-            cache: "no-store"
+            next: { revalidate: 0 }
         })
 
         const cartsJson = await carts.json()
@@ -76,7 +76,7 @@ export const getOneProjectById = async (id) => {
     try {
         const oneCart = await fetch(`${url}/private-api/project/${id}/`, {
             method: "GET",
-            cache: "no-store"
+            next: { revalidate: 0 }
         })
 
         const oneCartJson = await oneCart.json()
@@ -91,7 +91,7 @@ export const getOneProject = async (name) => {
     try {
         const oneCart = await fetch(`${url}/public-api/project/${name}/`, {
             method: "GET",
-            cache: "no-store"
+            next: { revalidate: 0 }
         })
 
         const oneCartJson = await oneCart.json()
@@ -120,7 +120,8 @@ export const updateOneProject = async (data) => {
     try {
         const updateCart = await fetch(`${url}/private-api/project/management/update/${id}/`, {
             method: "POST",
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
+            next: { revalidate: 0 }
         })
 
         const updateCartJson = await updateCart.json()
