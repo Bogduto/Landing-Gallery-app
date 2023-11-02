@@ -23,12 +23,15 @@ const CreateProject = () => {
       validationSchema={createNewProjectValidator}
       onSubmit={async (values) => {
         setIsLoading(true);
-        await fetch(`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/public-api/project/createOne/`, {
+        const results = await fetch(`https://leading-gallery-24cc70864604.herokuapp.com/api/public-api/project/createOne/`, {
           method: "POST",
           body: JSON.stringify(values),
           mode: 'no-cors'
-
         });
+
+        const resultJson = await results.json()
+        console.log(resultJson)
+
         setIsLoading(false);
         return router.push("/");
       }}

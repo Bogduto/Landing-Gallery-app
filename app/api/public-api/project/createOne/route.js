@@ -7,35 +7,32 @@ import path from 'path'
 import { uid } from 'uid'
 import puppeteer from 'puppeteer'
 
+const takeScreen = async (url) => {
+    const browser = await puppeteer.launch({
+        headless: true, 
+        args: ['--no-sandbox']
+    })
 
+    const page = await browser.newPage()
+    await page.goto(url, {waitUntil: "networkidle2"})
+
+    await browser.close()
+
+    return "Done"
+}
 
 export async function POST(req, res) {
     try {
         let body = await req.json()
 
 
-        const browser = await puppeteer.launch({headless: 'new'});
-        const page = await browser.newPage();
-        await page.setViewport({
-            width: 1920,
-            height: 1080,
-        });
-        await page.goto(body.websiteUrl, { waitUntil: 'load' });
-        const screenshotBuffer = await page.screenshot();
-
-        const fileName = `${uid(20)}.jpg`
-
-        const screenshotPath = await path.join(path.dirname('./public/uploads/'), 'uploads', fileName);
-
-        await fs.writeFileSync(screenshotPath, screenshotBuffer);
-
-
         await connectMongodb()
-        body.screenshot = fileName
+        const done = await takeScreen('https://twitch.tv')
+        body.screenshot = done
 
 
-        const cart = await cartModel
-        const newCart = await cart.create(body)
+        // const cart = await cartModel
+        // const newCart = await cart.create(body)
 
         return NextResponse.json({
             msg: "created new cart",

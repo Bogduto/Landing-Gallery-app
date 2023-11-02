@@ -1,4 +1,4 @@
-const url = process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api` : 'http://localhost:3000/api'
+const url = "https://leading-gallery-24cc70864604.herokuapp.com/api"
 
 export const searchProjectByName = async (name) => {
     try {
