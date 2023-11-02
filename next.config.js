@@ -2,7 +2,7 @@
 const nextConfig = {
   experimental: {
     appDir: true,
-    serverComponentsExternalPackages: ["puppeteer-extra", "puppeteer-extra-plugin-stealth", "@sparticuz/chromium"]
+    serverComponentsExternalPackages: ["puppeteer-extra", "puppeteer-extra-plugin-stealth", "@sparticuz/chromium", "puppeteer-core"]
   },
 }
 
