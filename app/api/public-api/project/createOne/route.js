@@ -5,17 +5,22 @@ import { NextResponse } from "next/server"
 import fs from 'fs'
 import path from 'path'
 import { uid } from 'uid'
-import puppeteer from 'puppeteer'
-
+import puppeteerExtra from 'puppeteer-extra'
+import stealthPlugin from 'puppeteer-extra-plugin-stealth'
+import chromium from '@sparticuz/chromium'
 const takeScreen = async (url) => {
-    const browser = await puppeteer.launch({
-        headless: "new", 
-        args: ['--no-sandbox'],
-        executablePath: `/usr/bin/google-chrome`,
-    })
+    puppeteerExtra.use(stealthPlugin())
+
+    const browser = await puppeteerExtra.launch({
+        args: chromium.args,
+        defaultViewport: chromium.defaultViewport,
+        executablePath: await chromium.executablePath(),
+        headless: chromium.headless,
+        ignoreHTTPSErrors: true,
+    });
 
     const page = await browser.newPage()
-    await page.goto(url, {waitUntil: "networkidle2"})
+    await page.goto(url, { waitUntil: "networkidle2" })
 
     await browser.close()
 
