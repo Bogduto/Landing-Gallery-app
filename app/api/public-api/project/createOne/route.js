@@ -10,7 +10,8 @@ import puppeteer from 'puppeteer'
 const takeScreen = async (url) => {
     const browser = await puppeteer.launch({
         headless: true, 
-        args: ['--no-sandbox']
+        args: ['--no-sandbox'],
+        executablePath: `/usr/bin/google-chrome`,
     })
 
     const page = await browser.newPage()
