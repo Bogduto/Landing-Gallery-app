@@ -35,4 +35,6 @@ yarn-error.log*
 next-env.d.ts
 
 # test routes 
-app/api/test/
+/app/api/test/
+# uploads
+/public/uploads/

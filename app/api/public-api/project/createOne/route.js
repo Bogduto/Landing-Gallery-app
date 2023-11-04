@@ -21,7 +21,16 @@ const takeScreen = async (url) => {
 
     const page = await browser.newPage()
     await page.goto(url, { waitUntil: "networkidle2" })
+    
+    const buffer = await page.screenshot()
 
+    // write jpg
+    const filename = `${uid(16)}.jpg`
+    const filepath = path.join(`./public/uploads/`, filename)
+
+    await writeFileSync(filepath, buffer)
+
+    
     await browser.close()
 
     return "Done"
