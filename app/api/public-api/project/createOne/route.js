@@ -35,7 +35,7 @@ const takeScreen = async (url) => {
 
     await browser.close()
 
-    return "Done"
+    return filepath
 }
 
 export async function POST(req, res) {
