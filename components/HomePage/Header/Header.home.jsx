@@ -7,7 +7,7 @@ import PopUpWindow from "@/components/UI/PopUpWindow";
 
 const Header = () => {
   const [categories, setCategories] = useState(categoriesArray);
-
+  console.log(process.env.NEXT_PUBLIC_URL)
   return (
     <div className="w-full py-[68px]">
       <Container>
