@@ -2,12 +2,12 @@
 import Container from "@/components/Layout/Container/Container";
 import React, { useState } from "react";
 import Select from "@/components/UI/Select/Select";
-import { categoriesArray } from "@/constants";
+import { categoriesArray, url } from "@/constants";
 import PopUpWindow from "@/components/UI/PopUpWindow";
 
 const Header = () => {
   const [categories, setCategories] = useState(categoriesArray);
-
+  console.log("url", url)
   return (
     <div className="w-full py-[68px]">
       <Container>
