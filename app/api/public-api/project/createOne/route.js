@@ -8,6 +8,8 @@ import { uid } from 'uid'
 import puppeteerExtra from 'puppeteer-extra'
 import stealthPlugin from 'puppeteer-extra-plugin-stealth'
 import chromium from '@sparticuz/chromium'
+
+
 const takeScreen = async (url) => {
     puppeteerExtra.use(stealthPlugin())
 
@@ -28,9 +30,9 @@ const takeScreen = async (url) => {
     const filename = `${uid(16)}.jpg`
     const filepath = path.join(`./public/uploads/`, filename)
 
-    await writeFileSync(filepath, buffer)
+    await fs.writeFileSync(filepath, buffer)
 
-    
+
     await browser.close()
 
     return "Done"
