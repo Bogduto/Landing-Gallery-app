@@ -7,6 +7,7 @@ import FormFieldCart from "@/components/UI/Form/FormField";
 import Category from "./Category";
 import arrayChangeDetector from "@/utils/arrayChangeDetector";
 import { useRouter } from "next/navigation";
+import { url } from "@/constants";
 
 const EditForm = ({ project }) => {
   const [values, setValues] = useState({
@@ -35,8 +36,8 @@ const EditForm = ({ project }) => {
           return;
         }
 
-        await fetch(
-          `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/private-api/project/management/update/${project._id}`,
+        const updatedResult = await fetch(
+          `${url}/private-api/project/management/update/${project._id}`,
           {
             method: "POST",
             body: JSON.stringify(detector),
@@ -44,6 +45,9 @@ const EditForm = ({ project }) => {
             cache: "no-cache",
           }
         );
+
+        const json = await updatedResult.json()
+
         await setOnLoading(false);
         return router.refresh();
       }}

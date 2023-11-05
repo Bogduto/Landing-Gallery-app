@@ -6,9 +6,8 @@ import Carts from './components/carts'
 
 const AdminDashboard = async () => {
     const data = await getAllProjectsAdmin();
-    console.log(data)
     return (
-        <div className="py-[40px] w-full minH-screen bg-white dark:bg-black">
+        <div className="py-[40px] w-full min-h-screen bg-white dark:bg-black">
             {data && <Carts data={data?.carts} />}
         </div>
     );

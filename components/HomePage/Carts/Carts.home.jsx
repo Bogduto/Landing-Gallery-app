@@ -1,12 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import Link from "next/link";
 // components
 import Container from "@/components/Layout/Container/Container";
 import Cart from "./Cart/Cart";
+import LoadMoreButton from "@/components/UI/Buttons/LoadMore";
+
 const Carts = ({ data }) => {
   return (
-    <div className="w-full h-full">
+    <div className="w-full min-h-screen">
       <Container>
         <div className="pb-[50px] w-full h-full flex flex-row flex-wrap items-start mobile:gap-[27px] tablet:gap-[32px] desktop:gap-[37.55px]">
           {data.map((item, key) => (
@@ -20,14 +21,9 @@ const Carts = ({ data }) => {
           ))}
         </div>
 
-        {data && data.length > 10 && (
+        {data.length >= 10 && (
           <div className="w-full flex flex-row justify-center py-[42px]">
-            <button
-              type="button"
-              className="duration-300 active:bg-footer-color-active bg-[#1E1E1E] hover:bg-[#2e2e2e] rounded-[8.5px] px-[27px] pt-[11.4px] pb-[12.66px] block text-white font-medium text-[14.9px] leading-[21.25px]"
-            >
-              Load more
-            </button>
+            <LoadMoreButton />
           </div>
         )}
       </Container>

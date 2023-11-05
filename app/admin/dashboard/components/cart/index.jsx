@@ -13,6 +13,8 @@ const AdminCart = ({
   categories,
   name,
 }) => {
+  const slideLength = 3
+
   return (
     <div className="w-full tablet:w-[400px]">
       {image && (
@@ -27,6 +29,28 @@ const AdminCart = ({
       <Link href={`${websiteUrl}`}>
         <div className="text-[13px]">url: {websiteUrl}</div>
       </Link>
+      {categories.length ? (
+        <div className="pt-[5px]  flex flex-row justify-start flex-wrap items-start gap-[3px]">
+          {categories.slice(0, slideLength).map((item, key) => (
+            <div
+              key={key}
+              className="text-black dark:text-white text-[12px] font-medium"
+            >
+              &quot;{item}&quot;{" "}
+              {categories.length < slideLength
+                ? key < categories.length - 1
+                  ? ","
+                  : null
+                : key < slideLength - 1 && ","}
+            </div>
+          ))}
+          {categories.length > 3 ? (
+            <div className="text-black dark:text-white text-[12px] tracking-[1px] font-normal">
+              ...
+            </div>
+          ) : null}
+        </div>
+      ) : null}
       <ButtonsContainer id={_id} />
     </div>
   );

@@ -3,21 +3,21 @@ import Container from "@/components/Layout/Container/Container";
 import React from "react";
 import AdminCart from "../cart";
 
-
 const Carts = ({ data }) => {
   return (
-    <div className="w-full h-full">
+    <div className="w-full min-h-screen">
       <Container>
         <div className="mb-[25px]">Under consideration</div>
 
         {data.length ? (
-          <div className="h-full flex flex-col gap-[30px]">
+          <div className="min-h-screen flex flex-col gap-[30px]">
             {data.map((item, key) => (
               <AdminCart
                 key={key}
                 image={item.screenshot ? item.screenshot : null}
                 description={item.description}
                 email={item.email}
+                categories={item?.categories}
                 name={item.name}
                 websiteUrl={item.websiteUrl}
                 _id={item._id}

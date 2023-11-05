@@ -1,4 +1,4 @@
-const url = "https://leading-gallery-24cc70864604.herokuapp.com/api"
+import { url } from "@/constants"
 
 export const searchProjectByName = async (name) => {
     try {
@@ -28,14 +28,13 @@ export const createOneProject = async (values) => {
     }
 }
 
-export const getAllProjectsClientByCategory = async (category) => {
+export const getAllProjectsClientByCategory = async (category, limit) => {
     try {
-        const path = category ? `${url}/public-api/project/getAllByCategory/${category}/` : `${url}/public-api/project/getAll`
+        const path = category ? `${url}/public-api/project/getAllByCategory/${category}/${limit}/` : `${url}/public-api/project/getAll/${limit}/`
 
         const carts = await fetch(path, {
             method: "GET",
             cache: "no-cache"
-
         })
 
         const cartsJson = await carts.json()

@@ -4,7 +4,6 @@ import { getOneProject } from "@/services";
 
 const DetailPage = async ({ params }) => {
   const cart = await getOneProject(params.name);
-
   return (
     <div className="desktop:minH-screen w-full z-10">
       <Detail

@@ -4,14 +4,23 @@ import Link from "next/link";
 import {
     acceptOneProject,
     deleteOneProject,
-    updateOneProject,
   } from "@/services";
 import Button from "../Button";
+import { useRouter } from "next/navigation";
   
 const ButtonsContainer = ({id}) => {
+  const router = useRouter()
+
+  const handleClick = async (cb) => {
+    await cb
+    
+    return router.refresh()
+  }
+
+
   return (
     <div className="flex flex-row gap-[10px] mt-[20px] items-center">
-      <Button onClick={() => acceptOneProject(id)}>
+      <Button onClick={() => handleClick(acceptOneProject(id))}>
         <svg
           width="24"
           height="24"
@@ -64,7 +73,7 @@ const ButtonsContainer = ({id}) => {
         </button>
       </Link>
 
-      <Button onClick={() => deleteOneProject(id)}>
+      <Button onClick={() => handleClick(deleteOneProject(id))}>
         <svg
           width="24"
           height="24"

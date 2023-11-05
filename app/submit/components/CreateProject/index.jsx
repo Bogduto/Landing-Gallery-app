@@ -7,6 +7,8 @@ import { createNewProjectValidator } from "@/validations/YapValidator";
 // components
 import SubmitButton from "@/components/UI/Buttons/SubmitButton";
 import FormFieldCart from "../../../../components/UI/Form/FormField";
+// constants
+import { url } from "@/constants";
 
 const CreateProject = () => {
 
@@ -23,7 +25,7 @@ const CreateProject = () => {
       validationSchema={createNewProjectValidator}
       onSubmit={async (values) => {
         setIsLoading(true);
-        const results = await fetch(`https://leading-gallery-24cc70864604.herokuapp.com/api/public-api/project/createOne/`, {
+        const results = await fetch(`${url}/public-api/project/createOne/`, {
           method: "POST",
           body: JSON.stringify(values),
           mode: 'no-cors'

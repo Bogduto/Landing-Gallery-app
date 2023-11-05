@@ -10,6 +10,10 @@ import stealthPlugin from 'puppeteer-extra-plugin-stealth'
 import chromium from '@sparticuz/chromium'
 
 
+// firebase
+import { storage } from "@/connects/firebase.config"
+import { getStorage, ref, uploadBytes, uploadString, getDownloadURL } from "firebase/storage";
+
 const takeScreen = async (url) => {
     puppeteerExtra.use(stealthPlugin())
 
@@ -23,19 +27,32 @@ const takeScreen = async (url) => {
 
     const page = await browser.newPage()
     await page.goto(url, { waitUntil: "networkidle2" })
-    
+
     const buffer = await page.screenshot()
 
     // write jpg
     const filename = `${uid(16)}.jpg`
-    const filepath = path.join(`./public/uploads/`, filename)
 
-    await fs.writeFileSync(filepath, buffer)
+    const storage = getStorage();
+    const storageRef = ref(storage, `uploads/${filename}`);
+
+    // 'file' comes from the Blob or File API
+
+    const bytes = new Uint8Array(buffer)
+
+    const snapshot = await uploadBytes(storageRef, bytes)
+
+    const url = await getDownloadURL(snapshot.ref)
+
+
+    // const filepath = path.join(`./public/uploads/`, filename)
+    // console.log(buffer)
+    // await fs.writeFileSync(filepath, buffer)
 
 
     await browser.close()
 
-    return filepath
+    return url
 }
 
 export async function POST(req, res) {
@@ -44,12 +61,12 @@ export async function POST(req, res) {
 
 
         await connectMongodb()
-        const done = await takeScreen('https://twitch.tv')
-        body.screenshot = done
+        // const done = await takeScreen('https://twitch.tv')
+        // body.screenshot = done
 
 
-        // const cart = await cartModel
-        // const newCart = await cart.create(body)
+        const cart = await cartModel
+        const newCart = await cart.create(body)
 
         return NextResponse.json({
             msg: "created new cart",
