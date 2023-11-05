@@ -1,15 +1,12 @@
+import { NextResponse } from "next/server"
+import { uid } from 'uid'
+// mongoose
 import connectMongodb from "@/connects/mongoose"
 import cartModel from "@/schemas/CartModel"
-import { NextResponse } from "next/server"
-
-import fs from 'fs'
-import path from 'path'
-import { uid } from 'uid'
+// puppeeteer
 import puppeteerExtra from 'puppeteer-extra'
 import stealthPlugin from 'puppeteer-extra-plugin-stealth'
 import chromium from '@sparticuz/chromium'
-
-
 // firebase
 import { storage } from "@/connects/firebase.config"
 import { getStorage, ref, uploadBytes, uploadString, getDownloadURL } from "firebase/storage";
