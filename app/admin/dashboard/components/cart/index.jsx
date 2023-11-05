@@ -19,7 +19,7 @@ const AdminCart = ({
     <div className="w-full tablet:w-[400px]">
       {image && (
         <div className="mb-[10px] w-full relative">
-          <img src={`/uploads/${image}`} alt="bg" />
+          <img src={image} alt="bg" />
         </div>
       )}
       <div className="mb-[5px] mobile:text-[16px] tablet:text-[20px] font-normal text-black dark:text-[#C8C8C8] tracking-[0.32px] leading-[17px] capitalize">

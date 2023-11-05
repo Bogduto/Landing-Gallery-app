@@ -7,7 +7,7 @@ const Cart = ({ description, name, image, categories }) => {
     <div className="w-[347.94px] text-white rounded-[25px]">
       {/* image */}
       <div className="rounded-[25px] w-full mb-[10px]">
-        <img src={`/uploads/${image}`} className="rounded-[15px] w-full" alt="cart image" />
+        <img src={image} className="rounded-[15px] w-full" alt="cart image" />
       </div>
       {/* name */}
 
