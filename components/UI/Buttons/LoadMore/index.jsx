@@ -1,7 +1,6 @@
 "use client";
-import React from "react";
-import { useSearchParams, useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 
 const LoadMoreButton = () => {
   const sliceParam = useSearchParams();
