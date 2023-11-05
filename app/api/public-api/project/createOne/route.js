@@ -42,7 +42,7 @@ const takeScreen = async (url) => {
 
     const snapshot = await uploadBytes(storageRef, bytes)
 
-    const url = await getDownloadURL(snapshot.ref)
+    const refUrl = await getDownloadURL(snapshot.ref)
 
 
     // const filepath = path.join(`./public/uploads/`, filename)
@@ -52,7 +52,7 @@ const takeScreen = async (url) => {
 
     await browser.close()
 
-    return url
+    return refUrl
 }
 
 export async function POST(req, res) {
