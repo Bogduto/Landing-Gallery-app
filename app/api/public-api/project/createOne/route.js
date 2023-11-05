@@ -61,8 +61,8 @@ export async function POST(req, res) {
 
 
         await connectMongodb()
-        // const done = await takeScreen('https://twitch.tv')
-        // body.screenshot = done
+        const done = await takeScreen('https://twitch.tv')
+        body.screenshot = done
 
 
         const cart = await cartModel
