@@ -78,5 +78,5 @@ export const categoriesArray = [
 ]
 
 
-export const url = `${process.env.NEXT_PUBLIC_URL}/api`
+export const url = process.env.NODE_ENV == "development" ? `${process.env.NEXT_PUBLIC_LOCAL_URL}/api` : `${process.env.NEXT_PUBLIC_URL}/api`
 // `${process.env.NEXT_PUBLIC_URL}/api` || 
