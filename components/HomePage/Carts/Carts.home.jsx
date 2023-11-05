@@ -23,7 +23,7 @@ const Carts = ({ data }) => {
 
         {data.length >= 10 && (
           <div className="w-full flex flex-row justify-center py-[42px]">
-            <LoadMoreButton />
+            <LoadMoreButton dataLength={data.length}/>
           </div>
         )}
       </Container>
