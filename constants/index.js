@@ -76,3 +76,7 @@ export const categoriesArray = [
         icon: "🪙",
     },
 ]
+
+
+export const url = `${process.env.NEXT_PUBLIC_URL}/api`
+// `${process.env.NEXT_PUBLIC_URL}/api` || 
