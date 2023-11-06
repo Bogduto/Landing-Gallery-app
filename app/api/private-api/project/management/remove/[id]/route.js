@@ -1,7 +1,11 @@
 import { NextResponse } from "next/server"
 import connectMongodb from "@/connects/mongoose"
 import cartModel from "@/schemas/CartModel"
-import { unlink } from "fs";
+// firebase
+import { storage } from "@/connects/firebase.config"
+import { ref, deleteObject } from "firebase/storage";
+
+
 export async function DELETE(req, {
     params
 }) {
@@ -14,12 +18,11 @@ export async function DELETE(req, {
 
         if (!findAndUpdateCart) console.error("not found or data is null")
 
+        // delet
         const imageName = findAndUpdateCart.screenshot
-        unlink(`./public/uploads/${imageName}`, (error) => {
-            if (error) {
-                throw new Error(error);
-            }
-        });
+        const desertRef = ref(storage, `uploads/${imageName}`);
+
+        await deleteObject(desertRef)
 
         return NextResponse.json({
             msg: "Project removed",
