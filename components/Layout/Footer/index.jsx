@@ -4,7 +4,7 @@ import Image from "next/image";
 import { categoriesArray } from "@/constants";
 import Link from "next/link";
 // components
-import Container from "../Container/Container";
+import Container from "../Container";
 const Footer = () => {
   return (
     <div className="w-full bg-footer-color mobile:py-[68px] desktop:py-[136px]">

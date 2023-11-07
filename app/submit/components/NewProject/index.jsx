@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 // components
-import Container from "@/components/Layout/Container/Container";
+import Container from "@/components/Layout/Container";
 import CreateProject from "../CreateProject";
 
 const NewProject = () => {

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Container from "../Container/Container";
+import Container from "../Container";
 import Image from "next/image";
 import Link from "next/link";
 import Search from "@/components/UI/Search/Search";
@@ -11,6 +11,7 @@ const ToggleTheme = dynamic(
   () => import("@/components/UI/ToggleTheme/ToggleTheme"),
   { ssr: false }
 );
+
 const Navbar = () => {
   return (
     <div className="w-full h-[46px] bg-inherit">

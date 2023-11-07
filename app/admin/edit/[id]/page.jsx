@@ -3,7 +3,7 @@ import React from "react";
 import { getOneProjectById } from "@/services";
 // components
 import EditForm from "./components/EditForm";
-import Container from "@/components/Layout/Container/Container";
+import Container from "@/components/Layout/Container";
 
 const EditCart = async ({ params }) => {
   const projectId = params.id;

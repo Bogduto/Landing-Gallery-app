@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { categoriesArray } from "@/constants";
 // components
-import Container from "../Container/Container";
+import Container from "../Container";
 
 const CategoriesCarts = () => {
   const [index, setIndex] = useState(5);

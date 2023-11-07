@@ -1,5 +1,5 @@
 "use client";
-import Container from "@/components/Layout/Container/Container";
+import Container from "@/components/Layout/Container";
 import React, { useState } from "react";
 import Select from "@/components/UI/Select/Select";
 import { categoriesArray, url } from "@/constants";

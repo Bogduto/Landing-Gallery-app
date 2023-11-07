@@ -1,5 +1,5 @@
 "use client";
-import Container from "@/components/Layout/Container/Container";
+import Container from "@/components/Layout/Container";
 import Image from "next/image";
 import React from "react";
 import AdminCart from "../cart";

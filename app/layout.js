@@ -1,6 +1,6 @@
 import './globals.css'
-import Navbar from '@/components/Layout/Navbar/Navbar'
-import Footer from '@/components/Layout/Footer/Footer'
+import Navbar from '@/components/Layout/Navbar/'
+import Footer from '@/components/Layout/Footer/'
 import Template from './template'
 import { Unbounded, Roboto } from 'next/font/google'
 import 'react-toastify/dist/ReactToastify.css';

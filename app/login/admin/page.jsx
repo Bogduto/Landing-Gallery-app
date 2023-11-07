@@ -1,6 +1,6 @@
 import React from "react";
 // components
-import Container from "@/components/Layout/Container/Container";
+import Container from "@/components/Layout/Container";
 import AdminLogin from "./components/LoginForm";
 
 const AdminPanel = async () => {

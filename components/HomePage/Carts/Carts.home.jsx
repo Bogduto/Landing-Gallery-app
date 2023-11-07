@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { useSearchParams, useRouter } from 'next/navigation'
 // components
-import Container from "@/components/Layout/Container/Container";
+import Container from "@/components/Layout/Container";
 import Cart from "./Cart/Cart";
 import LoadMoreButton from "@/components/UI/Buttons/LoadMore";
 

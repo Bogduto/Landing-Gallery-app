@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 // componetns
-import Container from "@/components/Layout/Container/Container";
-
+import Container from "@/components/Layout/Container";
 const Detail = ({
   description,
   name,

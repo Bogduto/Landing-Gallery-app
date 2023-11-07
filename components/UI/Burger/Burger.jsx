@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 import useBodyOverflow from "@/hooks/useOverflowBody";
 import { usePathname } from "next/navigation";
 // components
-import Container from "@/components/Layout/Container/Container";
+import Container from "@/components/Layout/Container";
 const ToggleTheme = dynamic(
   () => import("@/components/UI/ToggleTheme/ToggleTheme"),
   { ssr: false }
