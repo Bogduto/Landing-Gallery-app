@@ -57,7 +57,7 @@ export async function POST(req, res) {
 
 
         await connectMongodb()
-        const done = await takeScreen('https://twitch.tv')
+        const done = await takeScreen(body.websiteUrl)
         body.screenshot = done
 
 
