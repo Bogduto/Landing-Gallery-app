@@ -71,8 +71,8 @@ const CreateProject = () => {
           />
 
           <div className="mt-[26px] mobile:text-center desktop:text-start">
-            <SubmitButton>
-              {isLoading ? (
+            {isLoading ? (
+              <div className="flex flex-row gap-[6px] items-center w-[200px] rounded-[8.5px] py-[12px] px-[27px] duration-300 bg-orange hover:bg-orange-hover active:bg-orange-active">
                 <div role="status">
                   <svg
                     aria-hidden="true"
@@ -92,10 +92,11 @@ const CreateProject = () => {
                   </svg>
                   <span class="sr-only">Loading...</span>
                 </div>
-              ) : (
-                "Complete submission"
-              )}
-            </SubmitButton>
+                <div className="text-white text-[14.9px] text-white font-normal leading-[21.25px]">loading...</div>
+              </div>
+            ) : (
+              <SubmitButton>Complete submission</SubmitButton>
+            )}
           </div>
         </div>
       </Form>
