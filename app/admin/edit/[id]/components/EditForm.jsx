@@ -21,13 +21,13 @@ const EditForm = ({ project }) => {
   });
   const theme = useGetCurrentTheme();
 
-  const [onLoading, setOnLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   return (
     <Formik
       initialValues={values}
       onSubmit={async (values) => {
-        await setOnLoading(true);
+        await setIsLoading(true);
         const detector = await arrayChangeDetector(values, {
           categories: project.categories,
           description: project.description,
@@ -36,7 +36,7 @@ const EditForm = ({ project }) => {
         });
 
         if (Object.keys(detector).length === 0) {
-          setOnLoading(false);
+          setIsLoading(false);
           return;
         }
 
@@ -52,8 +52,8 @@ const EditForm = ({ project }) => {
 
         const json = await updatedResult.json();
 
-        await setOnLoading(false);
-        
+        await setIsLoading(false);
+
         toast.success("Changes saved! 📝✨", {
           position: "bottom-right",
           hideProgressBar: false,
@@ -66,7 +66,7 @@ const EditForm = ({ project }) => {
           role: "alert",
         });
 
-        router.refresh()
+        router.refresh();
       }}
     >
       <Form className="relative flex flex-col gap-[25px] mt-[24px] mobile:w-full tablet:w-[500px]">
@@ -85,8 +85,8 @@ const EditForm = ({ project }) => {
         <Category categories={values.categories} />
 
         <div>
-          <SubmitButton>
-            {onLoading ? (
+          {isLoading ? (
+            <div className="flex flex-row gap-[6px] items-center w-[200px] rounded-[8.5px] py-[12px] px-[27px] duration-300 bg-orange hover:bg-orange-hover active:bg-orange-active">
               <div role="status">
                 <svg
                   aria-hidden="true"
@@ -106,10 +106,13 @@ const EditForm = ({ project }) => {
                 </svg>
                 <span class="sr-only">Loading...</span>
               </div>
-            ) : (
-              "update cart"
-            )}
-          </SubmitButton>
+              <div className="text-white text-[14.9px] text-white font-normal leading-[21.25px]">
+                loading...
+              </div>
+            </div>
+          ) : (
+            <SubmitButton>update cart</SubmitButton>
+          )}
         </div>
       </Form>
     </Formik>
