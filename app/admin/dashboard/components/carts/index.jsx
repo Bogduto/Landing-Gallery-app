@@ -5,13 +5,12 @@ import React from "react";
 import AdminCart from "../cart";
 
 const Carts = ({ data }) => {
-  const show = false
   return (
     <div className="w-full min-h-screen">
       <Container>
         <div className="mb-[25px]">Under consideration</div>
 
-        {data ? (
+        {data.length > 0 ? (
           <div className="min-h-screen flex flex-col gap-[30px]">
             {data.map((item, key) => (
               <AdminCart
