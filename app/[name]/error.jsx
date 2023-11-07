@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 const Error = ({ error, reset }) => {
   const router = useRouter();
 
-  const handleGoHome = () => router.push("/admin/dashboard");
+  const handleGoHome = () => router.push("/");
   return (
     <div className="h-screen w-full flex flex-col justify-center items-center">
       <div className="text-[35px] dark:text-white text-black font-bold capitalize">
@@ -37,7 +37,7 @@ const Error = ({ error, reset }) => {
           </svg>
         </div>
         <div className="">
-          Go to dashboard
+          Go home
         </div>
       </button>
     </div>
