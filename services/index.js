@@ -28,9 +28,9 @@ export const createOneProject = async (values) => {
     }
 }
 
-export const getAllProjectsClientByCategory = async (category, limit) => {
+export const getAllProjectsClientByCategory = async (category) => {
     try {
-        const path = category ? `${url}/public-api/project/getAllByCategory/${category}/${limit}/` : `${url}/public-api/project/getAll/${limit}/`
+        const path = category ? `${url}/public-api/project/getAllByCategory/${category}/` : `${url}/public-api/project/getAll/`
 
         const carts = await fetch(path, {
             method: "GET",

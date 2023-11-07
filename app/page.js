@@ -9,7 +9,7 @@ import CategoriesCarts from '@/components/Layout/Categories'
 
 
 export default async function Home({ searchParams }) {
-  const carts = await getAllProjectsClientByCategory(searchParams?.category, searchParams.slice ? searchParams.slice : 10)
+  const carts = await getAllProjectsClientByCategory(searchParams?.category)
   return (
     <main className="">
       <Header />
