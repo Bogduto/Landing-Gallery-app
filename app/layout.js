@@ -3,6 +3,7 @@ import Navbar from '@/components/Layout/Navbar/Navbar'
 import Footer from '@/components/Layout/Footer/Footer'
 import Template from './template'
 import { Unbounded, Roboto } from 'next/font/google'
+import 'react-toastify/dist/ReactToastify.css';
 
 const roboto = Roboto({
   weight: ['400', "300", "700", "500"],
@@ -13,6 +14,7 @@ export const metadata = {
   title: 'Landing Gallery',
   description: 'Landing Gallery clone',
 }
+
 
 export default function RootLayout({ children }) {
   return (

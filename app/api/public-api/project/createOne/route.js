@@ -30,7 +30,6 @@ const takeScreen = async (url) => {
     // write jpg
     const filename = `${uid(16)}.jpg`
 
-    const storage = getStorage();
     const storageRef = ref(storage, `uploads/${filename}`);
 
     // 'file' comes from the Blob or File API

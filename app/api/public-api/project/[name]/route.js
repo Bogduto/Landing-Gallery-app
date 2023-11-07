@@ -13,12 +13,21 @@ export async function GET(req, { params }) {
         const cart = await cartModel
 
         const findOneCart = await cart.findOne({ name })
+
+        if (findOneCart) {
+            return NextResponse.json({
+                msg: "get one cart",
+                cart: findOneCart
+            }, {
+                status: 200
+            })
+        }
         
         return NextResponse.json({
-            msg: "get one cart",
+            msg: "not found",
             cart: findOneCart
         }, {
-            status: 200
+            status: 404
         })
     } catch (error) {
         throw new Error(error)

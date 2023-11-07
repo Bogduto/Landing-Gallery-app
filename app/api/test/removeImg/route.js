@@ -1,29 +1,19 @@
 import { NextResponse } from "next/server"
 import connectMongodb from "@/connects/mongoose"
-import cartModel from "@/schemas/CartModel"
-import { unlink } from "fs";
+import { getStorage, ref, deleteObject } from "firebase/storage";
+import { storage } from "@/connects/firebase.config";
 
 export async function POST(req, {
     params
 }) {
     try {
-    
+        // Create a reference to the file to delete
+        const desertRef = ref(storage, 'uploads/hello1.txt');
 
-        await connectMongodb()
-
-        const cart = await cartModel
-        const findAndUpdateCart = await cart.findOneAndRemove({ _id: body._id })
-
-        const imageName = findAndUpdateCart.screenshot
-
-        unlink(`./public/uploads/${imageName}`, (error) => {
-            if (error) {
-                throw new Error(error);
-            }
-        });
-
+        await deleteObject(desertRef)
         return NextResponse.json({
             msg: "Project removed",
+
         }, {
             status: 410
         });

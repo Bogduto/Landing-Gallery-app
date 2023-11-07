@@ -11,7 +11,7 @@ export async function GET(req, { params }) {
         const getAll = await cart.find({
             verified: true,
             categories: {
-                $gte: category
+                $regex: category
             }
         })
 

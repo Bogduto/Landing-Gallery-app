@@ -24,7 +24,7 @@ const Carts = ({ data }) => {
   };
   
 
-
+console.log(data.length)
   return (
     <div className="w-full min-h-screen">
       <Container>
