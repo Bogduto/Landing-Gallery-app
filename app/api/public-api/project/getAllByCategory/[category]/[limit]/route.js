@@ -16,7 +16,7 @@ export async function GET(req, { params }) {
         const getAllByCategory = await cart.find({
             verified: true,
             categories: {
-                $gte: category
+                $regex: category
             }
         }).limit(slicedIndex)
 
