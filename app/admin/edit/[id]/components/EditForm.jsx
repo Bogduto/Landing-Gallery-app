@@ -9,6 +9,9 @@ import arrayChangeDetector from "@/utils/arrayChangeDetector";
 import { useRouter } from "next/navigation";
 import { url } from "@/constants";
 
+import { ToastContainer, toast } from "react-toastify";
+import useGetCurrentTheme from "@/hooks/useGetCurrentTheme";
+
 const EditForm = ({ project }) => {
   const [values, setValues] = useState({
     categories: project.categories ? project.categories : [],
@@ -16,6 +19,7 @@ const EditForm = ({ project }) => {
     websiteUrl: project.websiteUrl,
     name: project.name,
   });
+  const theme = useGetCurrentTheme();
 
   const [onLoading, setOnLoading] = useState(false);
   const router = useRouter();
@@ -46,13 +50,27 @@ const EditForm = ({ project }) => {
           }
         );
 
-        const json = await updatedResult.json()
+        const json = await updatedResult.json();
 
         await setOnLoading(false);
-        return router.refresh();
+        
+        toast.success("Changes saved! 📝✨", {
+          position: "bottom-right",
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          autoClose: 3000,
+          draggable: true,
+          progress: undefined,
+          theme: theme,
+          role: "alert",
+        });
+
+        router.refresh()
       }}
     >
       <Form className="relative flex flex-col gap-[25px] mt-[24px] mobile:w-full tablet:w-[500px]">
+        <ToastContainer />
         <FormFieldCart name="name" placeholder={"project name"} />
         <FormFieldCart name="websiteUrl" placeholder={"website url"} />
         <FormFieldCart

@@ -2,6 +2,9 @@
 import React, { useState } from "react";
 import { Formik, Form } from "formik";
 import { useRouter } from "next/navigation";
+import { ToastContainer, toast } from "react-toastify";
+import useGetCurrentTheme from "@/hooks/useGetCurrentTheme";
+
 // validator
 import { createNewProjectValidator } from "@/validations/YapValidator";
 // components
@@ -11,8 +14,8 @@ import FormFieldCart from "../../../../components/UI/Form/FormField";
 import { url } from "@/constants";
 
 const CreateProject = () => {
-
   const router = useRouter();
+  const theme = useGetCurrentTheme();
   const [isLoading, setIsLoading] = useState(false);
   return (
     <Formik
@@ -28,17 +31,31 @@ const CreateProject = () => {
         const results = await fetch(`${url}/public-api/project/createOne/`, {
           method: "POST",
           body: JSON.stringify(values),
-          mode: 'no-cors'
+          mode: "no-cors",
         });
 
-        const resultJson = await results.json()
-        console.log(resultJson)
+        const resultJson = await results.json();
+        // console.log(resultJson);
 
         setIsLoading(false);
-        return router.push("/");
+
+        toast.success("Submission successful! 🎉 Redirecting in 5 seconds...", {
+          position: "bottom-right",
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          autoClose: 5000,
+          draggable: true,
+          progress: undefined,
+          theme: theme,
+          role: "alert",
+          onClose: () => setTimeout(() => router.push("/"), 5000),
+        });
       }}
     >
       <Form className="w-full h-full flex flex-row tablet:justify-center laptop:justify-start">
+        <ToastContainer />
+
         <div className="flex flex-col gap-[25px] mt-[24px] mobile:w-full tablet:w-[500px]">
           <FormFieldCart name={"name"} placeholder={"project name"} />
 
