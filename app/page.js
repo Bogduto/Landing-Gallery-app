@@ -16,9 +16,7 @@ export default async function Home({ searchParams }) {
       <CategoriesCarts />
       <div className='min-h-screen'>
         {
-          carts && carts.carts.length ? <Carts data={carts?.carts} /> : <div className='text-center'>
-            no results
-          </div>
+          carts ? <Carts data={carts?.carts} /> : null 
         }
       </div>
     </main>
