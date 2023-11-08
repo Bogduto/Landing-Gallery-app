@@ -86,11 +86,11 @@ const EditForm = ({ project }) => {
 
         <div>
           {isLoading ? (
-            <div className="flex flex-row gap-[6px] items-center w-[200px] rounded-[8.5px] py-[12px] px-[27px] duration-300 bg-orange hover:bg-orange-hover active:bg-orange-active">
+            <div className="flex flex-row gap-[6px] items-center w-[150px] rounded-[8.5px] py-[12px] px-[27px] duration-300 bg-orange hover:bg-orange-hover active:bg-orange-active">
               <div role="status">
                 <svg
                   aria-hidden="true"
-                  class="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+                  class="w-[15px] h-[15px] mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
                   viewBox="0 0 100 101"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
