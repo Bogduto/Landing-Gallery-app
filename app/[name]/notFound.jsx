@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -8,11 +8,11 @@ const NotFound = () => {
   const handleGoBack = () => router.back();
   return (
     <div className="w-full h-screen flex flex-col items-center justify-center">
-      <div className="relative w-[453px] h-[232px]">
+      <div className="relative mobile:w-[270px] mobile:h-[270px] laptop:w-[453px] laptop:h-[232px]">
         <Image src="/page-state/not-found.svg" alt="no apps icon" fill />
       </div>
 
-      <div className="w-full text-center mt-[25px] dark:text-white text-[#252F40] text-[35px] font-bold capitalize">
+      <div className="w-full text-center mobile:mt-[15px] laptop:mt-[25px] dark:text-white text-[#252F40] mobile:text-[25px] laptop:text-[35px] font-bold capitalize">
         Oh No! Error 404
       </div>
 

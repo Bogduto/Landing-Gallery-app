@@ -8,10 +8,10 @@ const Error = ({ error, reset }) => {
   const handleGoHome = () => router.push("/admin/dashboard");
   return (
     <div className="h-screen w-full flex flex-col justify-center items-center">
-      <div className="text-[35px] dark:text-white text-black font-bold capitalize">
+      <div className="mobile:text-[25px] laptop:text-[35px] dark:text-white text-black font-bold capitalize">
         something went wrong
       </div>
-      <div className="relative w-[500px] h-[400px]">
+      <div className="relative mobile:w-[270px] mobile:h-[270px] laptop:w-[500px] laptop:h-[400px]">
         <Image
           src="/page-state/something-went-wrong.svg"
           alt="error icon"
