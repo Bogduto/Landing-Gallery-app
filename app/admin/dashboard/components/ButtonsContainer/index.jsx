@@ -16,7 +16,7 @@ const ButtonsContainer = ({ id }) => {
   const handleClick = async (cb, text) => {
     await cb;
 
-    toast.success(text, {
+    toast.success(`${text} Page will refresh in 5 seconds.`, {
       position: "bottom-right",
       hideProgressBar: false,
       closeOnClick: true,
@@ -26,8 +26,9 @@ const ButtonsContainer = ({ id }) => {
       progress: undefined,
       theme: theme,
       role: "alert",
-      onClose: () => setTimeout(() => router.refresh(), 5000),
     });
+
+    setTimeout(() => router.refresh(), 5000)
   };
 
   return (
