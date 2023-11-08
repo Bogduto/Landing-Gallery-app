@@ -18,7 +18,7 @@ const Detail = ({
         <div className="py-[50px] w-full">
           {/* image */}
           <div className="z-10 relative mobile:w-full  tablet:w-[650px] mobile:h-[200px] tablet:h-[400px] mb-[30px]">
-            <Image src={screenshot} alt="cart image" fill />
+            <img src={screenshot} alt="cart image" className="w-full h-full" />
           </div>
           {/* name */}
           <div className="capitalize text-black dark:text-white mobile:w-full desktop:w-[650px]   text-[18px] desktop:text-[25px] mb-[25px]">
