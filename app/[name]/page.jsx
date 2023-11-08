@@ -8,7 +8,7 @@ const DetailPage = async ({ params }) => {
     <div className="desktop:minH-screen w-full z-10">
       <Detail
         description={cart.cart.description}
-        screenshot={`/uploads/${cart.cart.screenshot}`}
+        screenshot={cart.cart.screenshot}
         websiteUrl={cart.cart.websiteUrl}
         categories={cart.cart.categories}
         email={cart.cart.email}
