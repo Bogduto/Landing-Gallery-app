@@ -6,7 +6,7 @@ const NoProjectsFound = () => {
   return (
     <div className="min-h-screen pt-[50px]">
       <div className="w-full flex flex-col items-center justify-center">
-        <div className="relative mobile:w-[270px] mobile:h-[270px] w-[638px] h-[477px]">
+        <div className="relative mobile:w-[270px] mobile:h-[270px] laptop:w-[638px] laptop:h-[477px]">
           <Image src="/page-state/no-projects.svg" alt="no apps icon" fill />
         </div>
 
