@@ -48,7 +48,7 @@ const takeScreen = async (url) => {
 
     await browser.close()
 
-    return refUrl
+    return {refUrl, filename}
 }
 
 export async function POST(req, res) {
@@ -58,7 +58,9 @@ export async function POST(req, res) {
 
         await connectMongodb()
         const done = await takeScreen(body.websiteUrl)
-        body.screenshot = done
+        body.screenshot = done.refUrl
+        body.screenshotName = done.filename
+
 
 
         const cart = await cartModel

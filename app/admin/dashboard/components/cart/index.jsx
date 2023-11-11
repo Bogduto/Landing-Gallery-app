@@ -8,7 +8,6 @@ const AdminCart = ({
   description,
   email,
   websiteUrl,
-  _id,
   image,
   categories,
   name,
@@ -51,7 +50,6 @@ const AdminCart = ({
           ) : null}
         </div>
       ) : null}
-      <ButtonsContainer id={_id} />
     </div>
   );
 };

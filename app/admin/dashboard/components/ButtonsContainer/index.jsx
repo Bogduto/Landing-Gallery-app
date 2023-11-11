@@ -3,7 +3,6 @@ import React from "react";
 import Link from "next/link";
 import { acceptOneProject, deleteOneProject } from "@/services";
 import Button from "../Button";
-import { useRouter } from "next/navigation";
 
 import { ToastContainer, toast } from "react-toastify";
 import useGetCurrentTheme from "@/hooks/useGetCurrentTheme";

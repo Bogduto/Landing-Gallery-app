@@ -19,7 +19,7 @@ export async function DELETE(req, {
         if (!findAndUpdateCart) console.error("not found or data is null")
 
         // delet
-        const imageName = findAndUpdateCart.screenshot
+        const imageName = findAndUpdateCart.screenshotName
         const desertRef = ref(storage, `uploads/${imageName}`);
 
         await deleteObject(desertRef)

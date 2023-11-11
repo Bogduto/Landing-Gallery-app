@@ -5,6 +5,10 @@ const CartModel = mongoose.Schema({
         require: false,
         type: String
     },
+    screenshotName: {
+        require: false,
+        type: String
+    },
     name: {
         require: false,
         type: String
