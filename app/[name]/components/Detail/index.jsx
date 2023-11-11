@@ -62,7 +62,7 @@ const Detail = ({
                     {categories.map((item, key) => (
                       <div
                         key={key}
-                        className="text-black dark:text-white mobile:text-[13px] laptop:text-[17px] font-bold"
+                        className="text-black dark:text-white mobile:text-[13px] laptop:text-[17px] font-normal"
                       >
                         {item} {categories.length - 1 > key ? ", " : null}
                       </div>
