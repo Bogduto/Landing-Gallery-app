@@ -6,6 +6,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import Container from "@/components/Layout/Container";
 import Cart from "./Cart/Cart";
 import LoadMoreButton from "@/components/UI/Buttons/LoadMore";
+import NotFoundResults from "@/components/UI/Warns/NotFoundResults";
 
 const Carts = ({ data }) => {
   const [sliceIndex, setSliceIndex] = useState(10);
@@ -79,28 +80,14 @@ const Carts = ({ data }) => {
             )}
           </div>
         ) : (
-          <div className="min-h-screen pt-[50px]">
-            <div className="w-full flex flex-col items-center justify-center">
-              <div className="relative w-[613px] h-[309px]">
-                <Image
-                  src="/page-state/no-results-found.svg"
-                  alt="no apps icon"
-                  fill
-                />
-              </div>
-
-              <div className="w-full text-center mt-[25px] dark:text-white text-[#252F40] text-[35px] font-bold capitalize">
-                No results found.
-              </div>
-
-              <button
-                className="mt-[20px] duration-300 active:bg-footer-color-active bg-[#1E1E1E] hover:bg-[#2e2e2e] rounded-[8.5px] px-[27px] pt-[11.4px] pb-[12.66px] block text-white font-medium text-[14.9px] leading-[21.25px]"
-                onClick={handleClearCategory}
-              >
-                Clear category
-              </button>
-            </div>
-          </div>
+          <NotFoundResults>
+            <button
+              className="mt-[20px] duration-300 active:bg-footer-color-active bg-[#1E1E1E] hover:bg-[#2e2e2e] rounded-[8.5px] px-[27px] pt-[11.4px] pb-[12.66px] block text-white font-medium text-[14.9px] leading-[21.25px]"
+              onClick={handleClearCategory}
+            >
+              Clear category
+            </button>
+          </NotFoundResults>
         )}
       </Container>
     </div>

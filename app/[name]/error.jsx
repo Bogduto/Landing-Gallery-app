@@ -2,23 +2,18 @@
 import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import WentWrongError from "@/components/UI/Errors/WentWrong";
 const Error = ({ error, reset }) => {
   const router = useRouter();
 
   const handleGoHome = () => router.push("/");
   return (
-    <div className="h-screen w-full flex flex-col justify-center items-center">
-      <div className="mobile:text-[25px] laptop:text-[35px] dark:text-white text-black font-bold capitalize">
-        something went wrong
-      </div>
-      <div className="relative mobile:w-[270px] mobile:h-[270px] laptop:w-[500px] laptop:h-[400px]">
-        <Image
-          src="/page-state/something-went-wrong.svg"
-          alt="error icon"
-          fill
-        />
-      </div>
-      <button type="button" onClick={handleGoHome} className="flex mt-[20px] flex-row items-center gap-[6px]">
+    <WentWrongError>
+      <button
+        type="button"
+        onClick={handleGoHome}
+        className="flex mt-[20px] flex-row items-center gap-[6px]"
+      >
         <div className="relative">
           <svg
             width="20"
@@ -36,11 +31,9 @@ const Error = ({ error, reset }) => {
             />
           </svg>
         </div>
-        <div className="">
-          Go home
-        </div>
+        <div className="">Go home</div>
       </button>
-    </div>
+    </WentWrongError>
   );
 };
 
