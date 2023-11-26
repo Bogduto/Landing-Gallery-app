@@ -3,7 +3,6 @@ import connectMongodb from "@/connects/mongoose"
 import cartModel from "@/schemas/CartModel"
 import mongoose from "mongoose"
 
-export const revalidate = true
 
 export async function GET(req, {params}) {
     try {
